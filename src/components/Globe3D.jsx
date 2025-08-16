@@ -149,13 +149,13 @@ export default function Globe3D() {
                 `}>
                   <Icon className="w-5 h-5 text-white" />
                 </div>
-                {isActive && (
+                {/* {isActive && (
                   <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
                     <div className="bg-slate-800/90 backdrop-blur-sm px-2 py-1 rounded text-xs text-white">
                       {service.name}
                     </div>
                   </div>
-                )}
+                )} */}
               </div>
             );
           })}
@@ -219,7 +219,7 @@ export default function Globe3D() {
         <div className="bg-slate-800/95 backdrop-blur-sm rounded-lg px-4 py-3 border border-slate-700/50">
           <div className="flex items-center space-x-3">
             <div className="w-3 h-3 bg-cyan-400 rounded-full animate-pulse" />
-            <div>
+            {/* <div>
               <div className="text-sm font-medium text-white">Advanced Defense Grid Active</div>
               <div className="text-xs text-slate-400">
                 Incident Response - Rapid threat response and remediation
@@ -227,7 +227,7 @@ export default function Globe3D() {
               <div className="text-xs text-green-400 font-semibold">
                 Threats Neutralized: {threatsNeutralized.toLocaleString()}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
