@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 export default function TrustSection() {
+  const { isDark } = useTheme();
+
   const companies = [
     { name: 'Microsoft', letter: 'M' },
     { name: 'Amazon', letter: 'A' },
@@ -16,14 +19,20 @@ export default function TrustSection() {
   ];
 
   return (
-    <section className="py-20 relative">
+    <section className={`py-20 relative transition-colors duration-300 ${
+      isDark ? 'bg-slate-900' : 'bg-white'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-16">
           <div>
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-4xl font-bold mb-4 transition-colors duration-300 ${
+              isDark ? 'text-white' : 'text-slate-900'
+            }`}>
               Enterprises and MSSPs Rely on Darvin
             </h2>
-            <p className="text-xl text-slate-400">
+            <p className={`text-xl transition-colors duration-300 ${
+              isDark ? 'text-slate-400' : 'text-slate-600'
+            }`}>
               Trusted by security teams at leading organizations worldwide
             </p>
           </div>
@@ -44,8 +53,12 @@ export default function TrustSection() {
           <div className="grid md:grid-cols-3 gap-8 pt-16">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-5xl font-bold text-white mb-2">{stat.number}</div>
-                <div className="text-slate-400">{stat.label}</div>
+                <div className={`text-5xl font-bold mb-2 transition-colors duration-300 ${
+                  isDark ? 'text-white' : 'text-slate-900'
+                }`}>{stat.number}</div>
+                <div className={`transition-colors duration-300 ${
+                  isDark ? 'text-slate-400' : 'text-slate-600'
+                }`}>{stat.label}</div>
               </div>
             ))}
           </div>
