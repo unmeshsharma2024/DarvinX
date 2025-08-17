@@ -108,33 +108,66 @@ export default function Globe3D() {
     <div ref={containerRef} className="relative w-[500px] h-[500px] perspective-1500">
       
 
-      {/* Orbital rings */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div
-          className="absolute w-64 h-64 rounded-full"
-          style={{
-            background:
-              'conic-gradient(from 0deg, transparent, rgba(59,130,246,0.3), transparent, rgba(6,182,212,0.3), transparent)',
-            animation: 'spin 20s linear infinite'
-          }}
-        />
-        <div
-          className="absolute w-80 h-80 rounded-full"
-          style={{
-            background:
-              'conic-gradient(from 180deg, transparent, rgba(147,51,234,0.25), transparent, rgba(59,130,246,0.25), transparent)',
-            animation: 'spin 25s linear infinite reverse'
-          }}
-        />
-        <div
-          className="absolute w-96 h-96 rounded-full"
-          style={{
-            background:
-              'conic-gradient(from 90deg, transparent, rgba(6,182,212,0.2), transparent, rgba(147,51,234,0.2), transparent)',
-            animation: 'spin 30s linear infinite'
-          }}
-        />
-      </div>
+                                                       {/* Smooth Unified Orbital Ring System */}
+         <div className="absolute inset-0 flex items-center justify-center">
+           <div
+             className="absolute w-64 h-64 rounded-full blur-sm"
+             style={{
+               background: `
+                 conic-gradient(
+                   from 0deg,
+                   transparent 0deg,
+                   rgba(59,130,246,0.15) 30deg,
+                   rgba(6,182,212,0.2) 90deg,
+                   rgba(147,51,234,0.15) 150deg,
+                   rgba(59,130,246,0.15) 210deg,
+                   rgba(6,182,212,0.2) 270deg,
+                   rgba(147,51,234,0.15) 330deg,
+                   transparent 360deg
+                 )
+               `,
+               animation: 'spin 40s linear infinite'
+             }}
+           />
+           <div
+             className="absolute w-80 h-80 rounded-full blur-sm"
+             style={{
+               background: `
+                 conic-gradient(
+                   from 45deg,
+                   transparent 0deg,
+                   rgba(6,182,212,0.12) 30deg,
+                   rgba(147,51,234,0.18) 90deg,
+                   rgba(59,130,246,0.12) 150deg,
+                   rgba(6,182,212,0.12) 210deg,
+                   rgba(147,51,234,0.18) 270deg,
+                   rgba(59,130,246,0.12) 330deg,
+                   transparent 360deg
+                 )
+               `,
+               animation: 'spin 50s linear infinite reverse'
+             }}
+           />
+           <div
+             className="absolute w-96 h-96 rounded-full blur-sm"
+             style={{
+               background: `
+                 conic-gradient(
+                   from 90deg,
+                   transparent 0deg,
+                   rgba(147,51,234,0.1) 30deg,
+                   rgba(59,130,246,0.15) 90deg,
+                   rgba(6,182,212,0.1) 150deg,
+                   rgba(147,51,234,0.1) 210deg,
+                   rgba(59,130,246,0.15) 270deg,
+                   rgba(6,182,212,0.1) 330deg,
+                   transparent 360deg
+                 )
+               `,
+               animation: 'spin 60s linear infinite'
+             }}
+           />
+         </div>
 
       {/* Satellites orbit */}
       <div className="absolute inset-0">
