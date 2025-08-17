@@ -29,7 +29,6 @@ export default function Globe3D() {
   const [activeService, setActiveService] = useState(0);
   const [threatsNeutralized, setThreatsNeutralized] = useState(1247);
   const [asteroids, setAsteroids] = useState([]);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const containerRef = useRef(null);
   const animationRef = useRef();
 
@@ -41,24 +40,7 @@ export default function Globe3D() {
     return () => clearInterval(interval);
   }, []);
 
-  // Mouse tracking
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setMousePos({
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top
-        });
-      }
-    };
 
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      return () => container.removeEventListener('mousemove', handleMouseMove);
-    }
-  }, []);
 
   // Asteroid simulation
   useEffect(() => {
@@ -124,16 +106,7 @@ export default function Globe3D() {
 
   return (
     <div ref={containerRef} className="relative w-[500px] h-[500px] perspective-1500">
-      {/* Mouse glow */}
-      <div
-        className="absolute w-96 h-96 pointer-events-none transition-all duration-500 ease-out"
-        style={{
-          left: mousePos.x - 192,
-          top: mousePos.y - 192,
-          background:
-            'radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(6,182,212,0.15) 30%, rgba(147,51,234,0.1) 60%, transparent 80%)'
-        }}
-      />
+      
 
       {/* Orbital rings */}
       <div className="absolute inset-0 flex items-center justify-center">
