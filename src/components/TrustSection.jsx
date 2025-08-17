@@ -10,7 +10,7 @@ export default function TrustSection() {
   ];
 
   const stats = [
-    { number: '500+', label: 'Enterprise Customers' },
+    { number: '500+', label: 'Integrations' },
     { number: '99.9%', label: 'Threat Detection Rate' },
     { number: '24/7', label: 'Security Operations' },
   ];
@@ -29,7 +29,7 @@ export default function TrustSection() {
           </div>
 
           {/* Company logos */}
-          <div className="flex justify-center items-center space-x-16">
+          {/* <div className="flex justify-center items-center space-x-16">
             {companies.map((company) => (
               <div key={company.name} className="text-center">
                 <div className="w-16 h-16 bg-slate-800 rounded-lg flex items-center justify-center mb-3 border border-slate-700">
@@ -38,7 +38,7 @@ export default function TrustSection() {
                 <span className="text-sm text-slate-500">{company.name}</span>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* Stats */}
           <div className="grid md:grid-cols-3 gap-8 pt-16">
