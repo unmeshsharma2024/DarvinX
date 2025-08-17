@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react'; 
 import {
   Shield,
   Server,
@@ -170,7 +170,7 @@ export default function Globe3D() {
           style={{
             transform: 'translate(-50%, -50%)',
             transformOrigin: 'center',
-            animation: 'spin 60s linear infinite'
+            animation: 'spinOrbit 60s linear infinite' /* <-- only change here */
           }}
         >
           {services.map((service, index) => {
@@ -197,14 +197,6 @@ export default function Globe3D() {
                   `}
                 >
                   <Icon className="w-6 h-6 text-white drop-shadow-lg" />
-
-                  {isActive && (
-                    <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap z-10">
-                      <div className="bg-slate-800/95 backdrop-blur-sm px-3 py-2 rounded-lg text-sm text-white border border-slate-600/50 shadow-xl">
-                        {service.name}
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
             );
@@ -295,6 +287,11 @@ export default function Globe3D() {
         }
         .animate-spinIcon {
           animation: spinIcon 8s linear infinite;
+        }
+        /* Keeps the orbit wrapper centered while it rotates */
+        @keyframes spinOrbit {
+          from { transform: translate(-50%, -50%) rotate(0deg); }
+          to   { transform: translate(-50%, -50%) rotate(360deg); }
         }
       `}</style>
     </div>
