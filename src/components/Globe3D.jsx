@@ -1,5 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Shield, Server, Network, Lock, Brain, Cloud, Eye, UserCheck, Database, AlertTriangle } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react'; 
+import {
+  Shield,
+  Server,
+  Network,
+  Lock,
+  Brain,
+  Cloud,
+  Eye,
+  UserCheck,
+  Database,
+  AlertTriangle
+} from 'lucide-react';
 
 const services = [
   { name: 'Threat Intelligence', icon: Eye, color: 'from-red-500 to-orange-500', angle: 0 },
@@ -11,18 +22,17 @@ const services = [
   { name: 'Behavioral Analytics', icon: Database, color: 'from-purple-500 to-pink-500', angle: 216 },
   { name: 'Zero Trust', icon: Shield, color: 'from-pink-500 to-rose-500', angle: 252 },
   { name: 'Identity Management', icon: UserCheck, color: 'from-cyan-500 to-blue-500', angle: 288 },
-  { name: 'Incident Response', icon: AlertTriangle, color: 'from-yellow-500 to-orange-500', angle: 324 },
+  { name: 'Incident Response', icon: AlertTriangle, color: 'from-yellow-500 to-orange-500', angle: 324 }
 ];
 
 export default function Globe3D() {
   const [activeService, setActiveService] = useState(0);
   const [threatsNeutralized, setThreatsNeutralized] = useState(1247);
   const [asteroids, setAsteroids] = useState([]);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const containerRef = useRef(null);
   const animationRef = useRef();
 
-  // Service rotation
+  // Service rotation (for tooltip/status text)
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveService((prev) => (prev + 1) % services.length);
@@ -30,24 +40,7 @@ export default function Globe3D() {
     return () => clearInterval(interval);
   }, []);
 
-  // Mouse tracking
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setMousePos({
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top
-        });
-      }
-    };
 
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      return () => container.removeEventListener('mousemove', handleMouseMove);
-    }
-  }, []);
 
   // Asteroid simulation
   useEffect(() => {
@@ -64,35 +57,38 @@ export default function Globe3D() {
         type: ['Malware', 'Phishing', 'DDoS', 'Ransomware', 'Data Breach'][Math.floor(Math.random() * 5)],
         color: ['#ef4444', '#f97316', '#eab308', '#dc2626', '#7c3aed'][Math.floor(Math.random() * 5)]
       };
-      
-      setAsteroids(prev => [...prev.slice(-8), newAsteroid]);
+
+      setAsteroids((prev) => [...prev.slice(-8), newAsteroid]);
     };
 
     const spawnInterval = setInterval(spawnAsteroid, Math.random() * 4000 + 3000);
 
     const animate = () => {
-      setAsteroids(prev => prev.map(asteroid => {
-        const dx = asteroid.targetX - asteroid.x;
-        const dy = asteroid.targetY - asteroid.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        
-        if (distance < 100 && Math.random() > 0.2) {
-          // Intercepted
-          setThreatsNeutralized(count => count + 1);
-          return null;
-        }
-        
-        if (distance < 5) {
-          return null; // Reached target
-        }
-        
-        return {
-          ...asteroid,
-          x: asteroid.x + (dx / distance) * asteroid.speed,
-          y: asteroid.y + (dy / distance) * asteroid.speed
-        };
-      }).filter(Boolean));
-      
+      setAsteroids((prev) =>
+        prev
+          .map((asteroid) => {
+            const dx = asteroid.targetX - asteroid.x;
+            const dy = asteroid.targetY - asteroid.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 100 && Math.random() > 0.2) {
+              setThreatsNeutralized((count) => count + 1);
+              return null;
+            }
+
+            if (distance < 5) {
+              return null;
+            }
+
+            return {
+              ...asteroid,
+              x: asteroid.x + (dx / distance) * asteroid.speed,
+              y: asteroid.y + (dy / distance) * asteroid.speed
+            };
+          })
+          .filter(Boolean)
+      );
+
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -106,56 +102,108 @@ export default function Globe3D() {
     };
   }, []);
 
+  const radius = 120; // orbit distance from center
+
   return (
     <div ref={containerRef} className="relative w-[500px] h-[500px] perspective-1500">
-      {/* Mouse glow effect */}
-      <div 
-        className="absolute w-96 h-96 pointer-events-none transition-all duration-500 ease-out"
-        style={{
-          left: mousePos.x - 192,
-          top: mousePos.y - 192,
-          background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(6,182,212,0.1) 40%, transparent 70%)'
-        }}
-      />
+      
 
-      {/* Orbital rings */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="absolute w-80 h-80 border border-blue-500/25 rounded-full animate-spin-slow" style={{ animationDuration: '20s' }} />
-        <div className="absolute w-96 h-96 border border-blue-500/20 rounded-full animate-spin-slow" style={{ animationDuration: '25s' }} />
-        <div className="absolute w-[480px] h-[480px] border border-blue-500/15 rounded-full animate-spin-slow" style={{ animationDuration: '30s' }} />
-      </div>
+                                                       {/* Smooth Unified Orbital Ring System */}
+         <div className="absolute inset-0 flex items-center justify-center">
+           <div
+             className="absolute w-64 h-64 rounded-full blur-sm"
+             style={{
+               background: `
+                 conic-gradient(
+                   from 0deg,
+                   transparent 0deg,
+                   rgba(59,130,246,0.15) 30deg,
+                   rgba(6,182,212,0.2) 90deg,
+                   rgba(147,51,234,0.15) 150deg,
+                   rgba(59,130,246,0.15) 210deg,
+                   rgba(6,182,212,0.2) 270deg,
+                   rgba(147,51,234,0.15) 330deg,
+                   transparent 360deg
+                 )
+               `,
+               animation: 'spin 40s linear infinite'
+             }}
+           />
+           <div
+             className="absolute w-80 h-80 rounded-full blur-sm"
+             style={{
+               background: `
+                 conic-gradient(
+                   from 45deg,
+                   transparent 0deg,
+                   rgba(6,182,212,0.12) 30deg,
+                   rgba(147,51,234,0.18) 90deg,
+                   rgba(59,130,246,0.12) 150deg,
+                   rgba(6,182,212,0.12) 210deg,
+                   rgba(147,51,234,0.18) 270deg,
+                   rgba(59,130,246,0.12) 330deg,
+                   transparent 360deg
+                 )
+               `,
+               animation: 'spin 50s linear infinite reverse'
+             }}
+           />
+           <div
+             className="absolute w-96 h-96 rounded-full blur-sm"
+             style={{
+               background: `
+                 conic-gradient(
+                   from 90deg,
+                   transparent 0deg,
+                   rgba(147,51,234,0.1) 30deg,
+                   rgba(59,130,246,0.15) 90deg,
+                   rgba(6,182,212,0.1) 150deg,
+                   rgba(147,51,234,0.1) 210deg,
+                   rgba(59,130,246,0.15) 270deg,
+                   rgba(6,182,212,0.1) 330deg,
+                   transparent 360deg
+                 )
+               `,
+               animation: 'spin 60s linear infinite'
+             }}
+           />
+         </div>
 
-      {/* Satellites */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative w-80 h-80 animate-spin-slow" style={{ animationDuration: '60s' }}>
+      {/* Satellites orbit */}
+      <div className="absolute inset-0">
+        <div
+          className="absolute left-1/2 top-1/2"
+          style={{
+            transform: 'translate(-50%, -50%)',
+            transformOrigin: 'center',
+            animation: 'spinOrbit 60s linear infinite' /* <-- only change here */
+          }}
+        >
           {services.map((service, index) => {
             const Icon = service.icon;
             const isActive = index === activeService;
+
             return (
               <div
                 key={service.name}
-                className="absolute w-10 h-10 -ml-5 -mt-5 animate-spin-reverse"
+                className="absolute"
                 style={{
-                  animationDuration: '60s',
-                  left: '50%',
-                  top: '50%',
-                  transform: `rotate(${service.angle}deg) translateY(-160px)`
+                  transform: `rotate(${service.angle}deg) translateX(${radius}px)`,
+                  transformOrigin: '0 0'
                 }}
               >
-                <div className={`
-                  w-10 h-10 rounded-full border-4 border-white/20 flex items-center justify-center
-                  transition-all duration-500 bg-gradient-to-br ${service.color}
-                  ${isActive ? 'scale-125 shadow-lg shadow-current animate-pulse' : 'scale-100'}
-                `}>
-                  <Icon className="w-5 h-5 text-white" />
+                <div
+                  className={`
+                    relative w-12 h-12 -ml-6 -mt-6 
+                    rounded-full border-2 border-white/30 flex items-center justify-center
+                    transition-all duration-700 bg-gradient-to-br ${service.color}
+                    ${isActive ? 'scale-150 shadow-2xl shadow-current ring-4 ring-white/20' : 'scale-100'}
+                    hover:scale-110
+                    animate-spinIcon
+                  `}
+                >
+                  <Icon className="w-6 h-6 text-white drop-shadow-lg" />
                 </div>
-                {isActive && (
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-                    <div className="bg-slate-800/90 backdrop-blur-sm px-2 py-1 rounded text-xs text-white">
-                      {service.name}
-                    </div>
-                  </div>
-                )}
               </div>
             );
           })}
@@ -164,21 +212,21 @@ export default function Globe3D() {
 
       {/* Central Globe */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-600 to-slate-900 animate-pulse shadow-2xl shadow-blue-500/50">
-          {/* Globe grid lines */}
+        <div className="relative w-48 h-48 rounded-full bg-gradient-to-br from-blue-600 via-indigo-600 to-slate-900 animate-pulse shadow-2xl shadow-blue-500/50 border border-blue-400/30">
+          {/* Globe lines */}
           <div className="absolute inset-0 rounded-full overflow-hidden">
             {[...Array(8)].map((_, i) => (
               <div
                 key={`lat-${i}`}
-                className="absolute left-0 right-0 border-t border-cyan-400/30"
+                className="absolute left-0 right-0 border-t border-cyan-400/40"
                 style={{ top: `${(i + 1) * 12.5}%` }}
               />
             ))}
             {[...Array(12)].map((_, i) => (
               <div
                 key={`lng-${i}`}
-                className="absolute top-0 bottom-0 border-l border-cyan-400/30"
-                style={{ 
+                className="absolute top-0 bottom-0 border-l border-cyan-400/40"
+                style={{
                   left: '50%',
                   transform: `rotate(${i * 30}deg)`,
                   transformOrigin: '0 50%'
@@ -186,51 +234,72 @@ export default function Globe3D() {
               />
             ))}
           </div>
-          
-          {/* Central shield */}
+
+          {/* Shield */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <Shield className="w-16 h-16 text-cyan-300 animate-float" style={{
-              filter: 'drop-shadow(0 0 20px rgba(6, 182, 212, 0.8))'
-            }} />
+            <div className="relative">
+              <div className="absolute inset-0 bg-cyan-400/20 rounded-full blur-xl animate-pulse" />
+              <Shield
+                className="relative w-20 h-20 text-cyan-300"
+                style={{ filter: 'drop-shadow(0 0 30px rgba(6, 182, 212, 0.9))' }}
+              />
+            </div>
           </div>
+
+          {/* Pulsing rings */}
+          <div className="absolute inset-0 rounded-full border border-cyan-400/20 animate-ping" style={{ animationDuration: '3s' }} />
+          <div
+            className="absolute inset-0 rounded-full border border-blue-400/15 animate-ping"
+            style={{ animationDuration: '4s', animationDelay: '1s' }}
+          />
         </div>
       </div>
 
       {/* Asteroids */}
-      {asteroids.map(asteroid => (
-        <div
-          key={asteroid.id}
-          className="absolute animate-spin"
-          style={{
-            left: asteroid.x,
-            top: asteroid.y,
-            width: asteroid.size,
-            height: asteroid.size,
-            backgroundColor: asteroid.color,
-            borderRadius: '50%',
-            boxShadow: `0 0 10px ${asteroid.color}`,
-            animationDuration: '2s'
-          }}
-        />
+      {asteroids.map((asteroid) => (
+        <div key={asteroid.id} className="relative">
+          <div
+            className="absolute w-8 h-8 rounded-full opacity-30 animate-pulse"
+            style={{
+              left: asteroid.x - 4,
+              top: asteroid.y - 4,
+              backgroundColor: asteroid.color,
+              filter: 'blur(2px)',
+              animationDuration: '1s'
+            }}
+          />
+          <div
+            className="absolute animate-spin"
+            style={{
+              left: asteroid.x,
+              top: asteroid.y,
+              width: asteroid.size,
+              height: asteroid.size,
+              backgroundColor: asteroid.color,
+              borderRadius: '50%',
+              boxShadow: `0 0 20px ${asteroid.color}, 0 0 40px ${asteroid.color}`,
+              animationDuration: '2s'
+            }}
+          />
+        </div>
       ))}
 
-      {/* Status Panel */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="bg-slate-800/95 backdrop-blur-sm rounded-lg px-4 py-3 border border-slate-700/50">
-          <div className="flex items-center space-x-3">
-            <div className="w-3 h-3 bg-cyan-400 rounded-full animate-pulse" />
-            <div>
-              <div className="text-sm font-medium text-white">Advanced Defense Grid Active</div>
-              <div className="text-xs text-slate-400">
-                Incident Response - Rapid threat response and remediation
-              </div>
-              <div className="text-xs text-green-400 font-semibold">
-                Threats Neutralized: {threatsNeutralized.toLocaleString()}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Animations */}
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes spinIcon { 
+          from { transform: rotate(0deg); } 
+          to { transform: rotate(360deg); } 
+        }
+        .animate-spinIcon {
+          animation: spinIcon 8s linear infinite;
+        }
+        /* Keeps the orbit wrapper centered while it rotates */
+        @keyframes spinOrbit {
+          from { transform: translate(-50%, -50%) rotate(0deg); }
+          to   { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+      `}</style>
     </div>
   );
 }

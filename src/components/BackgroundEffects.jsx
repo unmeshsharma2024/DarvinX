@@ -24,14 +24,14 @@ export default function BackgroundEffects() {
       nodes.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
+        // vx: (Math.random() - 0.5) * 0.5,
+        // vy: (Math.random() - 0.5) * 0.5,
         size: Math.random() * 3 + 2
       });
     }
 
-    let animationFrameId;
-    const animate = () => {
+    // let animationFrameId;
+    const drawStatic = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Draw grid
@@ -53,13 +53,13 @@ export default function BackgroundEffects() {
         ctx.stroke();
       }
 
-      // Update and draw nodes
+      // Draw static nodes (no movement)
       nodes.forEach((node, i) => {
-        node.x += node.vx;
-        node.y += node.vy;
+        // node.x += node.vx;
+        // node.y += node.vy;
 
-        if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
-        if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+        // if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+        // if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
 
         // Draw node
         ctx.beginPath();
@@ -88,14 +88,15 @@ export default function BackgroundEffects() {
         });
       });
 
-      animationFrameId = requestAnimationFrame(animate);
+      // animationFrameId = requestAnimationFrame(animate);
     };
 
-    animate();
+    // Draw once instead of animating
+    drawStatic();
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
+      // cancelAnimationFrame(animationFrameId);
     };
   }, []);
 

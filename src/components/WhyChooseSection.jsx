@@ -5,8 +5,8 @@ export default function WhyChooseSection() {
   const features = [
     {
       icon: Users,
-      title: 'Expert Security Team',
-      description: '24/7 monitoring by certified security professionals with deep threat intelligence expertise'
+      title: 'Expert AI Security Operations Team',
+      description: '24/7 monitoring by azure Sentinel and triage by advanced AI custom models'
     },
     {
       icon: TrendingUp,
@@ -74,12 +74,12 @@ export default function WhyChooseSection() {
               </p>
 
               <div className="space-y-4">
-                <div className="bg-green-600/20 border border-green-500/30 rounded-lg p-4">
+                {/* <div className="bg-green-600/20 border border-green-500/30 rounded-lg p-4">
                   <div className="flex justify-between items-center">
                     <span className="text-green-300 font-medium">Threats Blocked Today</span>
                     <span className="text-2xl font-bold text-green-400">1,253</span>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4">
                   <div className="flex justify-between items-center">
