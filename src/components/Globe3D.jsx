@@ -292,24 +292,6 @@ export default function Globe3D() {
         </div>
       ))}
 
-      {/* Status Panel */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <div className="bg-slate-800/95 backdrop-blur-sm rounded-xl px-6 py-4 border border-slate-700/50 shadow-2xl">
-          <div className="flex items-center space-x-4">
-            <div className="w-4 h-4 bg-cyan-400 rounded-full animate-pulse shadow-lg shadow-cyan-400/50" />
-            <div>
-              <div className="text-sm font-semibold text-white">Advanced Defense Grid Active</div>
-              <div className="text-xs text-slate-400">
-                {services[activeService]?.name} - Active monitoring and protection
-              </div>
-              <div className="text-xs text-green-400 font-semibold mt-1">
-                Threats Neutralized: {threatsNeutralized.toLocaleString()}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* keyframes helper if your Tailwind config doesn't already include spin/slow */}
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
