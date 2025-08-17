@@ -163,9 +163,8 @@ export default function Globe3D() {
         />
       </div>
 
-      {/* Satellites: rotate around EXACT center */}
+      {/* Satellites orbit */}
       <div className="absolute inset-0">
-        {/* This wrapper is centered and spins, carrying all satellites around the shield */}
         <div
           className="absolute left-1/2 top-1/2"
           style={{
@@ -179,7 +178,6 @@ export default function Globe3D() {
             const isActive = index === activeService;
 
             return (
-              // Place each satellite at its polar position: rotate(angle) then translateX(radius)
               <div
                 key={service.name}
                 className="absolute"
@@ -188,7 +186,6 @@ export default function Globe3D() {
                   transformOrigin: '0 0'
                 }}
               >
-                {/* Keep the icon upright by rotating back */}
                 <div
                   className={`
                     relative w-12 h-12 -ml-6 -mt-6 
@@ -196,14 +193,11 @@ export default function Globe3D() {
                     transition-all duration-700 bg-gradient-to-br ${service.color}
                     ${isActive ? 'scale-150 shadow-2xl shadow-current ring-4 ring-white/20' : 'scale-100'}
                     hover:scale-110
+                    animate-spinIcon
                   `}
-                  style={{
-                    transform: `rotate(${-service.angle}deg)`
-                  }}
                 >
                   <Icon className="w-6 h-6 text-white drop-shadow-lg" />
 
-                  {/* Tooltip pinned to the icon (stays with it) */}
                   {isActive && (
                     <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap z-10">
                       <div className="bg-slate-800/95 backdrop-blur-sm px-3 py-2 rounded-lg text-sm text-white border border-slate-600/50 shadow-xl">
@@ -292,9 +286,16 @@ export default function Globe3D() {
         </div>
       ))}
 
-      {/* keyframes helper if your Tailwind config doesn't already include spin/slow */}
+      {/* Animations */}
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes spinIcon { 
+          from { transform: rotate(0deg); } 
+          to { transform: rotate(360deg); } 
+        }
+        .animate-spinIcon {
+          animation: spinIcon 8s linear infinite;
+        }
       `}</style>
     </div>
   );
