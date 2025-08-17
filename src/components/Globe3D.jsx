@@ -108,76 +108,95 @@ export default function Globe3D() {
 
   return (
     <div ref={containerRef} className="relative w-[500px] h-[500px] perspective-1500">
-      {/* Mouse glow effect */}
+      {/* Enhanced mouse glow effect */}
       <div 
         className="absolute w-96 h-96 pointer-events-none transition-all duration-500 ease-out"
         style={{
           left: mousePos.x - 192,
           top: mousePos.y - 192,
-          background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(6,182,212,0.1) 40%, transparent 70%)'
+          background: 'radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(6,182,212,0.15) 30%, rgba(147,51,234,0.1) 60%, transparent 80%)'
         }}
       />
 
-      {/* Orbital rings */}
+      {/* Enhanced orbital rings with gradients */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="absolute w-80 h-80 border border-blue-500/25 rounded-full animate-spin-slow" style={{ animationDuration: '20s' }} />
-        <div className="absolute w-96 h-96 border border-blue-500/20 rounded-full animate-spin-slow" style={{ animationDuration: '25s' }} />
-        <div className="absolute w-[480px] h-[480px] border border-blue-500/15 rounded-full animate-spin-slow" style={{ animationDuration: '30s' }} />
+        <div className="absolute w-64 h-64 rounded-full" style={{
+          background: 'conic-gradient(from 0deg, transparent, rgba(59,130,246,0.3), transparent, rgba(6,182,212,0.3), transparent)',
+          animation: 'spin 20s linear infinite'
+        }} />
+        <div className="absolute w-80 h-80 rounded-full" style={{
+          background: 'conic-gradient(from 180deg, transparent, rgba(147,51,234,0.25), transparent, rgba(59,130,246,0.25), transparent)',
+          animation: 'spin 25s linear infinite reverse'
+        }} />
+        <div className="absolute w-96 h-96 rounded-full" style={{
+          background: 'conic-gradient(from 90deg, transparent, rgba(6,182,212,0.2), transparent, rgba(147,51,234,0.2), transparent)',
+          animation: 'spin 30s linear infinite'
+        }} />
       </div>
 
-      {/* Satellites */}
+      {/* Enhanced Satellites with better effects */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative w-80 h-80 animate-spin-slow" style={{ animationDuration: '60s' }}>
           {services.map((service, index) => {
             const Icon = service.icon;
             const isActive = index === activeService;
+            const radius = 120; // Distance from center
+            const centerX = 250; // Center of the 500x500 container
+            const centerY = 250;
+            
+            // Calculate exact position for each icon
+            const iconX = centerX + radius * Math.cos((service.angle * Math.PI) / 180);
+            const iconY = centerY + radius * Math.sin((service.angle * Math.PI) / 180);
+            
             return (
               <div
                 key={service.name}
-                className="absolute w-10 h-10 -ml-5 -mt-5 animate-spin-reverse"
+                className="absolute w-12 h-12 -ml-6 -mt-6 animate-spin-reverse"
                 style={{
                   animationDuration: '60s',
-                  left: '50%',
-                  top: '50%',
-                  transform: `rotate(${service.angle}deg) translateY(-160px)`
+                  left: iconX,
+                  top: iconY,
+                  transform: 'none'
                 }}
               >
                 <div className={`
-                  w-10 h-10 rounded-full border-4 border-white/20 flex items-center justify-center
-                  transition-all duration-500 bg-gradient-to-br ${service.color}
-                  ${isActive ? 'scale-125 shadow-lg shadow-current animate-pulse' : 'scale-100'}
+                  w-12 h-12 rounded-full border-2 border-white/30 flex items-center justify-center
+                  transition-all duration-700 bg-gradient-to-br ${service.color}
+                  ${isActive ? 'scale-150 shadow-2xl shadow-current animate-pulse ring-4 ring-white/20' : 'scale-100'}
+                  hover:scale-110 transition-transform duration-300
                 `}>
-                  <Icon className="w-5 h-5 text-white" />
+                  <Icon className="w-6 h-6 text-white drop-shadow-lg" />
                 </div>
-                {/* {isActive && (
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-                    <div className="bg-slate-800/90 backdrop-blur-sm px-2 py-1 rounded text-xs text-white">
+                {/* Service name tooltip */}
+                {isActive && (
+                  <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-10">
+                    <div className="bg-slate-800/95 backdrop-blur-sm px-3 py-2 rounded-lg text-sm text-white border border-slate-600/50 shadow-xl">
                       {service.name}
                     </div>
                   </div>
-                )} */}
+                )}
               </div>
             );
           })}
         </div>
       </div>
 
-      {/* Central Globe */}
+      {/* Enhanced Central Globe with better effects */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-600 to-slate-900 animate-pulse shadow-2xl shadow-blue-500/50">
-          {/* Globe grid lines */}
+        <div className="relative w-48 h-48 rounded-full bg-gradient-to-br from-blue-600 via-indigo-600 to-slate-900 animate-pulse shadow-2xl shadow-blue-500/50 border border-blue-400/30">
+          {/* Enhanced Globe grid lines */}
           <div className="absolute inset-0 rounded-full overflow-hidden">
             {[...Array(8)].map((_, i) => (
               <div
                 key={`lat-${i}`}
-                className="absolute left-0 right-0 border-t border-cyan-400/30"
+                className="absolute left-0 right-0 border-t border-cyan-400/40"
                 style={{ top: `${(i + 1) * 12.5}%` }}
               />
             ))}
             {[...Array(12)].map((_, i) => (
               <div
                 key={`lng-${i}`}
-                className="absolute top-0 bottom-0 border-l border-cyan-400/30"
+                className="absolute top-0 bottom-0 border-l border-cyan-400/40"
                 style={{ 
                   left: '50%',
                   transform: `rotate(${i * 30}deg)`,
@@ -187,47 +206,64 @@ export default function Globe3D() {
             ))}
           </div>
           
-          {/* Central shield */}
+          {/* Enhanced central shield with glow */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <Shield className="w-16 h-16 text-cyan-300 animate-float" style={{
-              filter: 'drop-shadow(0 0 20px rgba(6, 182, 212, 0.8))'
-            }} />
+            <div className="relative">
+              <div className="absolute inset-0 bg-cyan-400/20 rounded-full blur-xl animate-pulse" />
+              <Shield className="relative w-20 h-20 text-cyan-300 animate-float drop-shadow-2xl" style={{
+                filter: 'drop-shadow(0 0 30px rgba(6, 182, 212, 0.9))'
+              }} />
+            </div>
           </div>
+
+          {/* Pulsing rings around globe */}
+          <div className="absolute inset-0 rounded-full border border-cyan-400/20 animate-ping" style={{ animationDuration: '3s' }} />
+          <div className="absolute inset-0 rounded-full border border-blue-400/15 animate-ping" style={{ animationDuration: '4s', animationDelay: '1s' }} />
         </div>
       </div>
 
-      {/* Asteroids */}
+      {/* Enhanced Asteroids with trails */}
       {asteroids.map(asteroid => (
-        <div
-          key={asteroid.id}
-          className="absolute animate-spin"
-          style={{
-            left: asteroid.x,
-            top: asteroid.y,
-            width: asteroid.size,
-            height: asteroid.size,
+        <div key={asteroid.id} className="relative">
+          {/* Asteroid trail */}
+          <div className="absolute w-8 h-8 rounded-full opacity-30 animate-pulse" style={{
+            left: asteroid.x - 4,
+            top: asteroid.y - 4,
             backgroundColor: asteroid.color,
-            borderRadius: '50%',
-            boxShadow: `0 0 10px ${asteroid.color}`,
-            animationDuration: '2s'
-          }}
-        />
+            filter: 'blur(2px)',
+            animationDuration: '1s'
+          }} />
+          {/* Main asteroid */}
+          <div
+            className="absolute animate-spin"
+            style={{
+              left: asteroid.x,
+              top: asteroid.y,
+              width: asteroid.size,
+              height: asteroid.size,
+              backgroundColor: asteroid.color,
+              borderRadius: '50%',
+              boxShadow: `0 0 20px ${asteroid.color}, 0 0 40px ${asteroid.color}`,
+              animationDuration: '2s'
+            }}
+          />
+        </div>
       ))}
 
-      {/* Status Panel */}
+      {/* Enhanced Status Panel */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="bg-slate-800/95 backdrop-blur-sm rounded-lg px-4 py-3 border border-slate-700/50">
-          <div className="flex items-center space-x-3">
-            <div className="w-3 h-3 bg-cyan-400 rounded-full animate-pulse" />
-            {/* <div>
-              <div className="text-sm font-medium text-white">Advanced Defense Grid Active</div>
+        <div className="bg-slate-800/95 backdrop-blur-sm rounded-xl px-6 py-4 border border-slate-700/50 shadow-2xl">
+          <div className="flex items-center space-x-4">
+            <div className="w-4 h-4 bg-cyan-400 rounded-full animate-pulse shadow-lg shadow-cyan-400/50" />
+            <div>
+              <div className="text-sm font-semibold text-white">Advanced Defense Grid Active</div>
               <div className="text-xs text-slate-400">
-                Incident Response - Rapid threat response and remediation
+                {services[activeService]?.name} - Active monitoring and protection
               </div>
-              <div className="text-xs text-green-400 font-semibold">
+              <div className="text-xs text-green-400 font-semibold mt-1">
                 Threats Neutralized: {threatsNeutralized.toLocaleString()}
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
