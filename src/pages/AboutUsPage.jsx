@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Users, Target, Award, TrendingUp, Globe } from 'lucide-react';
+import { Shield, Users, Target, Award, TrendingUp, Globe, Eye, Zap, Heart } from 'lucide-react';
 
 export default function AboutUsPage() {
   const stats = [
@@ -13,23 +13,23 @@ export default function AboutUsPage() {
   const values = [
     {
       icon: Shield,
-      title: 'Security First',
-      description: 'We believe security should be proactive, not reactive. Every decision we make prioritizes protecting our clients.'
+      title: 'Proactive Defense',
+      description: 'We don\'t just stop attacks — we stop fear. Our SOC solutions provide proactive, scalable, and intelligent defense systems.'
     },
     {
-      icon: Users,
-      title: 'Human-Centric',
-      description: 'Technology serves people, not the other way around. We build solutions that enhance human capabilities.'
+      icon: Eye,
+      title: 'Real-Time Monitoring',
+      description: 'Our watchtower never sleeps, detecting threats in real time and responding before damage is done.'
     },
     {
-      icon: TrendingUp,
-      title: 'Continuous Innovation',
-      description: 'The threat landscape evolves constantly. So do we, staying ahead with cutting-edge AI and machine learning.'
+      icon: Zap,
+      title: 'Rapid Response',
+      description: 'With relentless focus on rapid detection and immediate response, we act as your digital bodyguard.'
     },
     {
-      icon: Award,
-      title: 'Excellence',
-      description: 'We don\'t settle for good enough. Every feature, every update, every interaction must exceed expectations.'
+      icon: Heart,
+      title: 'Building Trust',
+      description: 'We deliver end-to-end protection that doesn\'t just mitigate risks, it builds long-term trust and confidence.'
     }
   ];
 
@@ -43,8 +43,8 @@ export default function AboutUsPage() {
               About Darvin
             </h1>
             <p className="text-xl lg:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              We're a team of cybersecurity experts, AI researchers, and software engineers 
-              dedicated to making enterprise security accessible, intelligent, and human.
+              We don't just stop attacks — we stop fear. Cybersecurity isn't just about playing defense, 
+              it's about giving organizations control over their data, their future, and the chaos of today's digital world.
             </p>
           </div>
         </div>
@@ -70,30 +70,100 @@ export default function AboutUsPage() {
         </div>
       </div>
 
-      {/* Mission Section */}
+      {/* About Section */}
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl font-bold mb-6 text-white">
-                Our Mission
+                About Darvin
               </h2>
               <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-                To democratize enterprise-grade cybersecurity by making it accessible to organizations 
-                of all sizes. We believe that every business deserves the same level of protection 
-                that Fortune 500 companies enjoy.
+                We are a next-generation cybersecurity company specializing in Security Operations Center (SOC) solutions. 
+                Our mission is to empower businesses with proactive, scalable, and intelligent defense systems that keep 
+                them resilient against the most sophisticated threats.
+              </p>
+              <p className="text-lg text-slate-300 mb-6 leading-relaxed">
+                Headquartered in Vancouver, Canada, Darvin operates with a global perspective, building resilient strategies 
+                that protect businesses, governments, and critical industries across multiple regions. By combining advanced 
+                technology with deep security expertise, we deliver end-to-end protection that doesn't just mitigate risks, 
+                it builds long-term trust and confidence.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed">
-                Through the power of artificial intelligence and human expertise, we're building 
-                a future where security teams can focus on what matters most: protecting their 
-                organizations and enabling growth.
+                With a relentless focus on real-time monitoring, rapid detection, and immediate response, we act as your 
+                digital bodyguard, early warning system, and always-on shield. Our tailored solutions allow organizations 
+                to focus on growth, while we safeguard what matters most — their people, their data, and their reputation.
               </p>
             </div>
             <div className="relative">
               <div className="w-full h-80 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-2xl border border-blue-500/30 flex items-center justify-center">
                 <div className="text-center">
                   <Shield className="w-24 h-24 text-blue-400 mx-auto mb-4" />
-                  <p className="text-blue-300 text-lg font-medium">Protecting What Matters</p>
+                  <p className="text-blue-300 text-lg font-medium">Your Digital Bodyguard</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mission Section */}
+      <div className="py-20 bg-slate-800/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="w-full h-80 bg-gradient-to-br from-green-600/20 to-blue-600/20 rounded-2xl border border-green-500/30 flex items-center justify-center">
+                <div className="text-center">
+                  <Target className="w-24 h-24 text-green-400 mx-auto mb-4" />
+                  <p className="text-green-300 text-lg font-medium">Removing Fear from the Digital World</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold mb-6 text-white">
+                Our Mission
+              </h2>
+              <p className="text-lg text-slate-300 mb-6 leading-relaxed">
+                At Darvin, our mission is to remove fear from the digital world by delivering a relentless Security 
+                Operations Center (SOC) that protects people, data, and reputation.
+              </p>
+              <p className="text-lg text-slate-300 mb-6 leading-relaxed">
+                Our SOC is more than technology; it is a watchtower that never sleeps, detecting threats in real time, 
+                responding before damage is done, and adapting as risks evolve.
+              </p>
+              <p className="text-lg text-slate-300 leading-relaxed">
+                We give organizations not just defense, but clarity, control, and the confidence to grow without hesitation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Vision Section */}
+      <div className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl font-bold mb-6 text-white">
+                Our Vision
+              </h2>
+              <p className="text-lg text-slate-300 mb-6 leading-relaxed">
+                Our vision is to redefine cybersecurity as freedom.
+              </p>
+              <p className="text-lg text-slate-300 mb-6 leading-relaxed">
+                We see a world where organizations operate boldly, without fear of disruption, where businesses innovate, 
+                governments serve with confidence, and communities trust the systems they rely on.
+              </p>
+              <p className="text-lg text-slate-300 leading-relaxed">
+                Darvin is building that future by turning SOC into an engine of trust — adaptive, predictive, 
+                and invisible in its reliability.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="w-full h-80 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl border border-purple-500/30 flex items-center justify-center">
+                <div className="text-center">
+                  <TrendingUp className="w-24 h-24 text-purple-400 mx-auto mb-4" />
+                  <p className="text-purple-300 text-lg font-medium">Redefining Cybersecurity as Freedom</p>
                 </div>
               </div>
             </div>
@@ -105,9 +175,9 @@ export default function AboutUsPage() {
       <div className="py-20 bg-slate-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-white">Our Values</h2>
+            <h2 className="text-4xl font-bold mb-4 text-white">What We Deliver</h2>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-              The principles that guide everything we do
+              The core capabilities that make Darvin your trusted security partner
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -131,10 +201,10 @@ export default function AboutUsPage() {
       <div className="py-20">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-6 text-white">
-            Ready to Transform Your Security?
+            Ready to Remove Fear from Your Digital World?
           </h2>
           <p className="text-xl text-slate-300 mb-8">
-            Join hundreds of organizations that trust Darvin to protect their digital assets.
+            Join organizations that trust Darvin to protect their people, data, and reputation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
