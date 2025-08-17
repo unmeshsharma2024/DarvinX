@@ -15,7 +15,7 @@ export default function HeroSection() {
             </span>
 
             <div className="space-y-6">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-5xl lg:text-6xl  leading-tight">
                 AI-Powered Security
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">

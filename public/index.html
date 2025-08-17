@@ -7,11 +7,17 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Darvin Cyber Defense - AI-Powered Security Your Team Can Trust" />
     <title>Darvin Cyber Defense</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
+            fontFamily: {
+              'sans': ['DM Sans', 'sans-serif'],
+            },
             animation: {
               'spin-slow': 'spin 20s linear infinite',
               'spin-reverse': 'spin 20s linear infinite reverse',
@@ -67,7 +73,7 @@
         background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
         min-height: 100vh;
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
       }
 
       .perspective-1500 {
