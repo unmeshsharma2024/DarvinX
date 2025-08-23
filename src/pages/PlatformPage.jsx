@@ -112,123 +112,141 @@ export default function PlatformPage() {
     <div className={`min-h-screen transition-colors duration-300 ${
       isDark ? 'bg-slate-900 text-white' : 'bg-white text-slate-900'
     }`}>
-      {/* Header */}
-      {/* <div className={`sticky top-0 z-50 backdrop-blur-md border-b transition-colors duration-300 ${
-        isDark ? 'bg-slate-900/80 border-slate-700' : 'bg-white/80 border-slate-200'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link to="/" className={`inline-flex items-center px-4 py-2 rounded-lg transition-colors duration-300 ${
-              isDark 
-                ? 'text-slate-300 hover:bg-slate-800' 
-                : 'text-slate-600 hover:bg-slate-100'
-            }`}>
-              <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
-              Back to Home
-            </Link>
-            <div className="flex items-center space-x-3">
-              <div className={`w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center ${
-                isDark ? 'shadow-lg shadow-blue-500/25' : 'shadow-lg shadow-blue-500/20'
+      {/* Enhanced Hero Section - Image 1 */}
+      <section className="pt-32 pb-24 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-transparent to-cyan-500"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center space-y-12">
+            {/* Enhanced VorXOC Badge */}
+            <div className="flex justify-center mb-8">
+              <div className={`relative group cursor-pointer transition-all duration-500 hover:scale-110 ${
+                isDark 
+                  ? 'bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 border border-slate-600/50' 
+                  : 'bg-gradient-to-r from-slate-100 via-white to-slate-100 border border-slate-300'
               }`}>
-                <Shield className="w-4 h-4 text-white" />
-              </div>
-              <div>
-                <div className={`text-sm font-bold transition-colors duration-300 ${
-                  isDark ? 'text-white' : 'text-slate-900'
-                }`}>VorXOC</div>
-                <div className="text-xs text-cyan-400 font-medium">Virtual SOC</div>
+                <div className={`absolute inset-0 rounded-full blur-xl opacity-30 transition-opacity duration-500 group-hover:opacity-50 ${
+                  isDark ? 'bg-blue-500' : 'bg-blue-400'
+                }`}></div>
+                <div className={`relative px-8 py-4 rounded-full flex items-center space-x-3 ${
+                  isDark ? 'shadow-2xl shadow-blue-500/20' : 'shadow-2xl shadow-blue-400/20'
+                }`}>
+                  <div className={`w-3 h-3 rounded-full animate-pulse ${
+                    isDark ? 'bg-blue-400' : 'bg-blue-600'
+                  }`}></div>
+                  <span className={`text-xl font-bold tracking-wide ${
+                    isDark ? 'text-blue-300' : 'text-blue-700'
+                  }`}>VorXOC</span>
+                  <div className={`w-2 h-2 rounded-full ${
+                    isDark ? 'bg-cyan-400' : 'bg-cyan-600'
+                  }`}></div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* Hero Section - Image 1 */}
-      <section className="pt-20 pb-16 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-8">
-            <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold transition-colors duration-300 ${
-              isDark 
-                ? 'bg-blue-600/20 border-blue-500/30 text-blue-300' 
-                : 'bg-blue-100 border-blue-200 text-blue-700'
-            }`}>
-              <div className={`w-2 h-2 rounded-full mr-2 animate-pulse ${
-                isDark ? 'bg-blue-400' : 'bg-blue-600'
-              }`}></div>
-              VorXOC Platform
-            </span>
             
-            <h1 className={`text-5xl lg:text-6xl leading-tight transition-colors duration-300 ${
-              isDark ? 'text-white' : 'text-slate-900'
-            }`}>
-              Enterprise-Grade Security Operations
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-                Without the Enterprise Cost
-              </span>
-            </h1>
+            {/* Enhanced Main Headline */}
+            <div className="space-y-8">
+              <h1 className={`text-6xl lg:text-7xl leading-tight font-black transition-all duration-500 ${
+                isDark ? 'text-white' : 'text-slate-900'
+              }`}>
+                <span className="block mb-2">Enterprise-Grade</span>
+                <span className="block mb-4">Security Operations</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 text-5xl lg:text-6xl block">
+                  Without the Enterprise Cost
+                </span>
+              </h1>
+            </div>
             
-            <p className={`text-xl leading-relaxed max-w-4xl mx-auto transition-colors duration-300 ${
+            {/* Enhanced Description */}
+            <p className={`text-xl lg:text-2xl leading-relaxed max-w-5xl mx-auto transition-colors duration-300 ${
               isDark ? 'text-slate-300' : 'text-slate-600'
             }`}>
-              VorXOC delivers comprehensive cybersecurity monitoring, threat detection, and incident response 
-              through our virtual Security Operations Center. Get 24/7 protection with expert analysts, 
-              AI-powered threat intelligence, and rapid response capabilities.
+              VorXOC delivers <span className="font-semibold text-blue-400">comprehensive cybersecurity monitoring</span>, 
+              <span className="font-semibold text-cyan-400"> threat detection</span>
+              <span className="font-semibold text-blue-400"> </span> through our virtual Security Operations Center. 
+              Get <span className="font-semibold text-cyan-400">24/7 protection</span> with expert analysts, 
+              <span className="font-semibold text-blue-400"> AI-powered threat intelligence</span>, and rapid response capabilities.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className={`h-12 px-8 rounded-lg inline-flex items-center justify-center font-medium shadow-lg transition-all duration-300 hover:scale-105 ${
+            {/* Enhanced CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-12">
+              <button className={`group h-14 px-10 rounded-xl inline-flex items-center justify-center font-bold text-lg shadow-2xl transition-all duration-500 hover:scale-110 ${
                 isDark 
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/25' 
-                  : 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/20'
+                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-blue-600/30' 
+                  : 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-blue-600/25'
               }`}>
                 Start Free Trial
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
-              <button className={`h-12 px-8 rounded-lg inline-flex items-center justify-center border font-medium transition-all duration-300 hover:scale-105 ${
+              <button className={`group h-14 px-10 rounded-xl inline-flex items-center justify-center border-2 font-bold text-lg transition-all duration-500 hover:scale-110 ${
                 isDark 
-                  ? 'border-slate-600 text-slate-300 hover:bg-slate-800' 
-                  : 'border-slate-300 text-slate-700 hover:bg-slate-100'
+                  ? 'border-slate-500 text-slate-300 hover:border-blue-400 hover:text-blue-400 hover:bg-slate-800/50' 
+                  : 'border-slate-300 text-slate-700 hover:border-blue-500 hover:text-blue-600 hover:bg-slate-50'
               }`}>
-                <Play className="w-4 h-4 mr-2" />
+                <Play className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" />
                 Watch Demo
               </button>
+            </div>
+
+            {/* Enhanced Back to Home Link */}
+            <div className="pt-12">
+              <Link to="/" className={`inline-flex items-center px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 ${
+                isDark 
+                  ? 'text-slate-400 hover:text-white hover:bg-slate-800/50' 
+                  : 'text-slate-500 hover:text-slate-700 hover:bg-slate-100'
+              }`}>
+                <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
+                Back to Home
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Section - Image 1 */}
-      <section className="py-20 relative">
+      {/* Enhanced Why Choose Section - Image 1 */}
+      <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-16">
-            <div>
-              <h2 className={`text-4xl font-bold mb-6 transition-colors duration-300 ${
+          <div className="text-center space-y-20">
+            <div className="space-y-6">
+              <h2 className={`text-5xl lg:text-6xl font-black transition-colors duration-300 ${
                 isDark ? 'text-white' : 'text-slate-900'
               }`}>
-                Why Choose VorXOC?
+                Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">VorXOC</span>?
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-16">
               {whyChooseFeatures.map((category, index) => (
-                <div key={index} className="space-y-6">
-                  <h3 className={`text-2xl font-semibold transition-colors duration-300 ${
-                    isDark ? 'text-white' : 'text-slate-900'
+                <div key={index} className="space-y-8 group">
+                  <div className={`p-8 rounded-2xl border-2 transition-all duration-500 hover:scale-105 ${
+                    isDark 
+                      ? 'bg-slate-800/30 border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800/50' 
+                      : 'bg-white border-slate-200 hover:border-blue-300 hover:shadow-xl'
                   }`}>
-                    {category.category}
-                  </h3>
-                  <div className="space-y-4">
-                    {category.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start space-x-3">
-                        <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                        <span className={`transition-colors duration-300 ${
-                          isDark ? 'text-slate-300' : 'text-slate-600'
-                        }`}>
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
+                    <h3 className={`text-3xl font-bold mb-8 transition-colors duration-300 ${
+                      isDark ? 'text-white' : 'text-slate-900'
+                    }`}>
+                      {category.category}
+                    </h3>
+                    <div className="space-y-6">
+                      {category.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-start space-x-4 group-hover:translate-x-2 transition-transform duration-300">
+                          <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${
+                            isDark ? 'bg-green-500/20' : 'bg-green-100'
+                          }`}>
+                            <CheckCircle className="w-4 h-4 text-green-400" />
+                          </div>
+                          <span className={`text-lg transition-colors duration-300 ${
+                            isDark ? 'text-slate-300' : 'text-slate-600'
+                          }`}>
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -237,26 +255,26 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* Platform Features Section - Image 2 */}
-      <section className={`py-20 relative transition-colors duration-300 ${
-        isDark ? 'bg-slate-800/50' : 'bg-slate-50'
+      {/* Enhanced Platform Features Section - Image 2 */}
+      <section className={`py-24 relative transition-colors duration-300 ${
+        isDark ? 'bg-slate-800/30' : 'bg-slate-50'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-16">
-            <div>
-              <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold transition-colors duration-300 ${
+          <div className="text-center space-y-20">
+            <div className="space-y-8">
+              <span className={`inline-flex items-center rounded-full border-2 px-6 py-3 text-sm font-bold transition-colors duration-300 ${
                 isDark 
-                  ? 'bg-blue-600/20 border-blue-500/30 text-blue-300' 
-                  : 'bg-blue-100 border-blue-200 text-blue-700'
+                  ? 'bg-blue-600/20 border-blue-500/40 text-blue-300' 
+                  : 'bg-blue-100 border-blue-300 text-blue-700'
               }`}>
                 VorXOC Platform Features
               </span>
-              <h2 className={`text-4xl font-bold mt-6 mb-6 transition-colors duration-300 ${
+              <h2 className={`text-5xl lg:text-6xl font-black transition-colors duration-300 ${
                 isDark ? 'text-white' : 'text-slate-900'
               }`}>
-                Complete Virtual SOC Experience
+                Complete <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Virtual SOC</span> Experience
               </h2>
-              <p className={`text-xl transition-colors duration-300 max-w-4xl mx-auto ${
+              <p className={`text-xl lg:text-2xl transition-colors duration-300 max-w-5xl mx-auto ${
                 isDark ? 'text-slate-300' : 'text-slate-600'
               }`}>
                 Access your security operations center from anywhere. Monitor alerts, interact with analysts, 
@@ -270,67 +288,67 @@ export default function PlatformPage() {
                 return (
                   <div
                     key={index}
-                    className={`backdrop-blur-sm rounded-lg p-6 border transition-all duration-300 group hover:scale-105 ${
+                    className={`backdrop-blur-sm rounded-2xl p-8 border-2 transition-all duration-500 group hover:scale-105 hover:-translate-y-2 ${
                       isDark 
-                        ? 'bg-slate-800/50 border-slate-700/50 hover:bg-slate-800/70' 
-                        : 'bg-white border-slate-200 hover:bg-slate-50'
+                        ? 'bg-slate-800/50 border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800/70' 
+                        : 'bg-white border-slate-200 hover:border-blue-300 hover:shadow-2xl'
                     }`}
                   >
-                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform ${
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${
                       isDark 
-                        ? 'bg-blue-600/20 text-blue-400' 
-                        : 'bg-blue-100 text-blue-600'
+                        ? 'bg-gradient-to-br from-blue-600/20 to-cyan-600/20 text-blue-400' 
+                        : 'bg-gradient-to-br from-blue-100 to-cyan-100 text-blue-600'
                     }`}>
-                      <Icon className="w-6 h-6" />
+                      <Icon className="w-8 h-8" />
                     </div>
-                    <h3 className={`text-xl font-semibold mb-3 transition-colors duration-300 ${
+                    <h3 className={`text-2xl font-bold mb-4 transition-colors duration-300 ${
                       isDark ? 'text-white' : 'text-slate-900'
                     }`}>
                       {feature.title}
                     </h3>
-                    <p className={`mb-4 transition-colors duration-300 ${
+                    <p className={`mb-6 text-lg transition-colors duration-300 ${
                       isDark ? 'text-slate-400' : 'text-slate-600'
                     }`}>
                       {feature.description}
                     </p>
-                    <a href="#" className={`inline-flex items-center font-medium transition-colors duration-300 ${
+                    <a href="#" className={`inline-flex items-center font-bold text-lg transition-all duration-300 group-hover:translate-x-2 ${
                       isDark 
                         ? 'text-blue-400 hover:text-blue-300' 
                         : 'text-blue-600 hover:text-blue-700'
                     }`}>
                       Learn more
-                      <ArrowRight className="w-4 h-4 ml-1" />
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </a>
                   </div>
                 );
               })}
             </div>
 
-            <div className="pt-8">
-              <button className={`h-12 px-8 rounded-lg inline-flex items-center justify-center font-medium shadow-lg transition-all duration-300 hover:scale-105 ${
+            <div className="pt-12">
+              <button className={`group h-16 px-12 rounded-xl inline-flex items-center justify-center font-bold text-xl shadow-2xl transition-all duration-500 hover:scale-110 ${
                 isDark 
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/25' 
-                  : 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/20'
+                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-blue-600/30' 
+                  : 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-blue-600/25'
               }`}>
                 Enter VorXOC Platform
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Comprehensive Security Section - Image 3 */}
-      <section className="py-20 relative">
+      {/* Enhanced Comprehensive Security Section - Image 3 */}
+      <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-16">
-            <div>
-              <h2 className={`text-4xl font-bold mb-6 transition-colors duration-300 ${
+          <div className="text-center space-y-20">
+            <div className="space-y-8">
+              <h2 className={`text-5xl lg:text-6xl font-black transition-colors duration-300 ${
                 isDark ? 'text-white' : 'text-slate-900'
               }`}>
-                Comprehensive Security Operations
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Comprehensive</span> Security Operations
               </h2>
-              <p className={`text-xl transition-colors duration-300 max-w-4xl mx-auto ${
+              <p className={`text-xl lg:text-2xl transition-colors duration-300 max-w-5xl mx-auto ${
                 isDark ? 'text-slate-300' : 'text-slate-600'
               }`}>
                 VorXOC combines cutting-edge technology with human expertise to deliver unparalleled security operations.
@@ -343,25 +361,25 @@ export default function PlatformPage() {
                 return (
                   <div
                     key={index}
-                    className={`backdrop-blur-sm rounded-lg p-6 border transition-all duration-300 group hover:scale-105 ${
+                    className={`backdrop-blur-sm rounded-2xl p-8 border-2 transition-all duration-500 group hover:scale-105 hover:-translate-y-2 ${
                       isDark 
-                        ? 'bg-slate-800/50 border-slate-700/50 hover:bg-slate-800/70' 
-                        : 'bg-white border-slate-200 hover:bg-slate-50'
+                        ? 'bg-slate-800/50 border-slate-700/50 hover:border-green-500/50 hover:bg-slate-800/70' 
+                        : 'bg-white border-slate-200 hover:border-green-300 hover:shadow-2xl'
                     }`}
                   >
-                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform ${
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${
                       isDark 
-                        ? 'bg-green-600/20 text-green-400' 
-                        : 'bg-green-100 text-green-600'
+                        ? 'bg-gradient-to-br from-green-600/20 to-emerald-600/20 text-green-400' 
+                        : 'bg-gradient-to-br from-green-100 to-emerald-100 text-green-600'
                     }`}>
-                      <Icon className="w-6 h-6" />
+                      <Icon className="w-8 h-8" />
                     </div>
-                    <h3 className={`text-xl font-semibold mb-3 transition-colors duration-300 ${
+                    <h3 className={`text-2xl font-bold mb-4 transition-colors duration-300 ${
                       isDark ? 'text-white' : 'text-slate-900'
                     }`}>
                       {feature.title}
                     </h3>
-                    <p className={`transition-colors duration-300 ${
+                    <p className={`text-lg transition-colors duration-300 ${
                       isDark ? 'text-slate-400' : 'text-slate-600'
                     }`}>
                       {feature.description}
@@ -374,36 +392,36 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* CTA Section - Image 4 */}
-      <section className={`py-20 relative transition-colors duration-300 ${
-        isDark ? 'bg-slate-800/50' : 'bg-slate-50'
+      {/* Enhanced CTA Section - Image 4 */}
+      <section className={`py-24 relative transition-colors duration-300 ${
+        isDark ? 'bg-slate-800/30' : 'bg-slate-50'
       }`}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            <h2 className={`text-4xl lg:text-5xl font-bold transition-colors duration-300 ${
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="space-y-10">
+            <h2 className={`text-5xl lg:text-6xl font-black transition-colors duration-300 ${
               isDark ? 'text-white' : 'text-slate-900'
             }`}>
-              Ready to Secure Your Business?
+              Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Secure</span> Your Business?
             </h2>
-            <p className={`text-xl transition-colors duration-300 ${
+            <p className={`text-xl lg:text-2xl transition-colors duration-300 ${
               isDark ? 'text-slate-300' : 'text-slate-600'
             }`}>
               Join hundreds of companies that trust VorXOC to protect their digital assets.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className={`h-12 px-8 rounded-lg inline-flex items-center justify-center font-medium shadow-lg transition-all duration-300 hover:scale-105 ${
+            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+              <button className={`group h-16 px-12 rounded-xl inline-flex items-center justify-center font-bold text-xl shadow-2xl transition-all duration-500 hover:scale-110 ${
                 isDark 
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/25' 
-                  : 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/20'
+                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-blue-600/30' 
+                  : 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-blue-600/25'
               }`}>
                 Get Started Today
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
               </button>
-              <button className={`h-12 px-8 rounded-lg inline-flex items-center justify-center border font-medium transition-all duration-300 hover:scale-105 ${
+              <button className={`group h-16 px-12 rounded-xl inline-flex items-center justify-center border-2 font-bold text-xl transition-all duration-500 hover:scale-110 ${
                 isDark 
-                  ? 'border-slate-600 text-slate-300 hover:bg-slate-800' 
-                  : 'border-slate-300 text-slate-700 hover:bg-slate-100'
+                  ? 'border-slate-500 text-slate-300 hover:border-blue-400 hover:text-blue-400 hover:bg-slate-800/50' 
+                  : 'border-slate-300 text-slate-700 hover:border-blue-500 hover:text-blue-600 hover:bg-slate-50'
               }`}>
                 Contact Sales
               </button>
@@ -412,26 +430,26 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className={`py-12 border-t transition-colors duration-300 ${
+      {/* Enhanced Footer */}
+      <footer className={`py-16 border-t-2 transition-colors duration-300 ${
         isDark ? 'border-slate-700 bg-slate-900' : 'border-slate-200 bg-white'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-3 mb-4 md:mb-0">
-              <div className={`w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center ${
-                isDark ? 'shadow-lg shadow-blue-500/25' : 'shadow-lg shadow-blue-500/20'
+            <div className="flex items-center space-x-4 mb-6 md:mb-0">
+              <div className={`w-12 h-12 bg-gradient-to-br from-blue-500 via-cyan-400 to-blue-600 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 ${
+                isDark ? 'shadow-blue-500/25 hover:shadow-blue-500/40' : 'shadow-blue-500/20 hover:shadow-blue-500/35'
               }`}>
-                <Shield className="w-4 h-4 text-white" />
+                <Shield className="w-6 h-6 text-white" />
               </div>
               <div>
-                <div className={`text-sm font-bold transition-colors duration-300 ${
-                  isDark ? 'text-white' : 'text-slate-900'
+                <div className={`text-2xl font-black bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent transition-all duration-300 ${
+                  isDark ? 'drop-shadow-lg' : 'drop-shadow-md'
                 }`}>VorXOC</div>
-                <div className="text-xs text-cyan-400 font-medium">Virtual SOC</div>
+                <div className="text-sm text-cyan-400 font-bold tracking-wider">VIRTUAL SOC</div>
               </div>
             </div>
-            <div className={`text-sm transition-colors duration-300 ${
+            <div className={`text-base transition-colors duration-300 ${
               isDark ? 'text-slate-500' : 'text-slate-600'
             }`}>
               © 2024 VorXOC. All rights reserved.
