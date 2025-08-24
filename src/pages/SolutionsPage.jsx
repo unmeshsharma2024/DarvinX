@@ -313,25 +313,25 @@ export default function SolutionsPage() {
     {
       name: "Palo Alto Networks",
       category: "Firewall",
-      logo: "/placeholder.svg?height=60&width=120&text=Palo+Alto",
+      logo: "/images/logos/palo-alto.svg",
       description: "Next-generation firewall with advanced threat prevention",
     },
     {
       name: "Fortinet FortiGate",
       category: "Firewall",
-      logo: "/placeholder.svg?height=60&width=120&text=Fortinet",
+      logo: "/images/logos/fortinet.svg",
       description: "High-performance network security platform",
     },
     {
       name: "Cisco ASA",
       category: "Firewall",
-      logo: "/placeholder.svg?height=60&width=120&text=Cisco",
+      logo: "/images/logos/cisco.svg",
       description: "Adaptive security appliance for network protection",
     },
     {
       name: "SonicWall",
       category: "Firewall",
-      logo: "/placeholder.svg?height=60&width=120&text=SonicWall",
+      logo: "/images/logos/sonicwall.svg",
       description: "Network security and data protection solutions",
     },
 
@@ -339,25 +339,25 @@ export default function SolutionsPage() {
     {
       name: "CrowdStrike Falcon",
       category: "Endpoint",
-      logo: "/placeholder.svg?height=60&width=120&text=CrowdStrike",
+      logo: "/images/logos/crowdstrike.svg",
       description: "Cloud-native endpoint protection platform",
     },
     {
       name: "Microsoft Defender",
       category: "Endpoint",
-      logo: "/placeholder.svg?height=60&width=120&text=Microsoft",
+      logo: "/images/logos/microsoft.svg",
       description: "Enterprise endpoint detection and response",
     },
     {
       name: "SentinelOne",
       category: "Endpoint",
-      logo: "/placeholder.svg?height=60&width=120&text=SentinelOne",
+      logo: "/images/logos/sentinelone.svg",
       description: "AI-powered endpoint security platform",
     },
     {
       name: "Carbon Black",
       category: "Endpoint",
-      logo: "/placeholder.svg?height=60&width=120&text=Carbon+Black",
+      logo: "/images/logos/carbon-black.svg",
       description: "Next-generation antivirus and EDR solution",
     },
 
@@ -365,25 +365,25 @@ export default function SolutionsPage() {
     {
       name: "Cloudflare WAF",
       category: "WAF",
-      logo: "/placeholder.svg?height=60&width=120&text=Cloudflare",
+      logo: "/images/logos/cloudflare.svg",
       description: "Cloud-based web application firewall",
     },
     {
       name: "AWS WAF",
       category: "WAF",
-      logo: "/placeholder.svg?height=60&width=120&text=AWS",
+      logo: "/images/logos/aws.svg",
       description: "Web application firewall for AWS resources",
     },
     {
       name: "F5 BIG-IP ASM",
       category: "WAF",
-      logo: "/placeholder.svg?height=60&width=120&text=F5",
+      logo: "/images/logos/f5.svg",
       description: "Application security manager and WAF",
     },
     {
       name: "Imperva WAF",
       category: "WAF",
-      logo: "/placeholder.svg?height=60&width=120&text=Imperva",
+      logo: "/images/logos/imperva.svg",
       description: "Web application and API protection",
     },
 
@@ -391,25 +391,25 @@ export default function SolutionsPage() {
     {
       name: "Snort",
       category: "IPS/IDS",
-      logo: "/placeholder.svg?height=60&width=120&text=Snort",
+      logo: "/images/logos/snort.svg",
       description: "Open-source intrusion detection system",
     },
     {
       name: "Suricata",
       category: "IPS/IDS",
-      logo: "/placeholder.svg?height=60&width=120&text=Suricata",
+      logo: "/images/logos/suricata.svg",
       description: "High-performance network IDS/IPS",
     },
     {
       name: "Trend Micro TippingPoint",
       category: "IPS/IDS",
-      logo: "/placeholder.svg?height=60&width=120&text=TippingPoint",
+      logo: "/images/logos/trend-micro.svg",
       description: "Network intrusion prevention system",
     },
     {
       name: "McAfee Network Security Platform",
       category: "IPS/IDS",
-      logo: "/placeholder.svg?height=60&width=120&text=McAfee",
+      logo: "/images/logos/mcafee.svg",
       description: "Network intrusion prevention and detection",
     },
   ];
@@ -805,7 +805,11 @@ export default function SolutionsPage() {
                           <img
                             src={tool.logo || "/placeholder.svg"}
                             alt={`${tool.name} logo`}
-                            className="h-12 mx-auto object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity"
+                            className="h-12 mx-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                            onError={(e) => {
+                              e.target.src = "/placeholder.svg";
+                              e.target.className = "h-12 mx-auto object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity";
+                            }}
                           />
                         </div>
                         <h4 className={`font-semibold mb-2 transition-colors duration-300 ${
