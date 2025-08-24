@@ -1,5 +1,1 @@
-<svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
-  <rect width="120" height="60" fill="#f8f9fa" rx="8"/>
-  <text x="60" y="35" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#2d3748">PALO ALTO</text>
-  <text x="60" y="48" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#4a5568">NETWORKS</text>
-</svg>
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Palo Alto Networks</title><path d="m10.278 15.443 1.705 1.705-3.426 3.426-3.427-3.426 8.592-8.591-1.705-1.705 3.426-3.426 3.427 3.426-8.592 8.591zM0 12.017l3.426 3.426 8.591-8.59-3.426-3.427L0 12.017zm11.983 5.13 3.426 3.427L24 11.983l-3.426-3.426-8.591 8.59z"/></svg>
