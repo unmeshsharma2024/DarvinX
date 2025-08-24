@@ -110,7 +110,7 @@ export default function ResourcesPage() {
           : 'bg-gradient-to-br from-white via-blue-50/50 to-white'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+      <div className="text-center">
             <h1 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               Security Resources
             </h1>
@@ -317,7 +317,7 @@ export default function ResourcesPage() {
               isDark ? 'text-slate-400' : 'text-slate-600'
             }`}>
               About Us →
-            </Link>
+        </Link>
           </div>
         </div>
       </div>
