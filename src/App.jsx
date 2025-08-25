@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import Header from './components/Header';
-// import BackgroundEffects from './components/BackgroundEffects';
+import BackgroundEffects from './components/BackgroundEffects';
 import HomePage from './pages/HomePage';
 import PlatformPage from './pages/PlatformPage';
 import SolutionsPage from './pages/SolutionsPage';
@@ -18,7 +18,7 @@ function AppContent() {
     <div className={`min-h-screen relative overflow-hidden transition-colors duration-300 ${
       isDark ? 'bg-slate-900 text-white' : 'bg-white text-slate-900'
     }`}>
-      {/* <BackgroundEffects /> */}
+      <BackgroundEffects />
       <Header />
       <main>
         <Routes>
