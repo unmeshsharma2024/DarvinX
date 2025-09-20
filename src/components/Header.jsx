@@ -37,7 +37,7 @@ export default function Header() {
               <span className={`text-xl font-bold ${
                 isDark ? 'text-white' : 'text-slate-900'
               }`}>
-                HELXON
+                Darvin
               </span>
             </Link>
           </div>
