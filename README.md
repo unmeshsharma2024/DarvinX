@@ -1,8 +1,8 @@
-# Darvin Cyber Security Website
+# Helxon Cyber Security Website
 
 *Automatically synced with your [v0.dev](https://v0.dev) deployments*
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/kalu272727-5611s-projects/v0-darvin-cyber-security-website)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/kalu272727-5611s-projects/v0-Helxon-cyber-security-website)
 [![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/9JfdihqIn45)
 
 ## Overview
@@ -14,7 +14,7 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 Your project is live at:
 
-**[https://vercel.com/kalu272727-5611s-projects/v0-darvin-cyber-security-website](https://vercel.com/kalu272727-5611s-projects/v0-darvin-cyber-security-website)**
+**[https://vercel.com/kalu272727-5611s-projects/v0-Helxon-cyber-security-website](https://vercel.com/kalu272727-5611s-projects/v0-Helxon-cyber-security-website)**
 
 ## Build your app
 

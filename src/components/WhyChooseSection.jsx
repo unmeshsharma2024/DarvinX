@@ -32,7 +32,7 @@ export default function WhyChooseSection() {
                 Industry Leading
               </span>
               <h2 className="text-4xl font-bold text-white mb-6">
-                Why Security Leaders Choose Darvin
+                Why Security Leaders Choose Helxon
               </h2>
               <p className="text-xl text-slate-400">
                 Built for enterprise security teams who need reliable, scalable, and intelligent 

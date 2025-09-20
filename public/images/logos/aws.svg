@@ -1,0 +1,13 @@
+<svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9900;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e47911;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="60" fill="#232f3e" rx="8"/>
+  <text x="60" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="url(#awsGrad)">AWS</text>
+  <text x="60" y="48" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#ffffff">WAF</text>
+  <path d="M30 20 L40 25 L35 30 L25 25 Z" fill="url(#awsGrad)"/>
+  <path d="M90 20 L100 25 L95 30 L85 25 Z" fill="url(#awsGrad)"/>
+</svg>
