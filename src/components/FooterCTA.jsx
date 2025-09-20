@@ -10,7 +10,7 @@ export default function FooterCTA() {
             Ready to Strengthen Your Cyber Defense?
           </h2>
           <p className="text-xl text-slate-600">
-            Join hundreds of enterprises who trust Darvin to protect their most critical assets.
+            Join hundreds of enterprises who trust Helxon to protect their most critical assets.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -33,12 +33,12 @@ export default function FooterCTA() {
                 <Shield className="w-4 h-4 text-white" />
               </div>
               <div>
-                <div className="text-sm font-bold text-white">Darvin</div>
+                <div className="text-sm font-bold text-white">Helxon</div>
                 <div className="text-xs text-cyan-400 font-medium">CYBER DEFENSE</div>
               </div>
             </div>
             <div className="text-sm text-slate-500">
-              © 2024 Darvin Cyber Defense. All rights reserved.
+              © 2024 Helxon Cyber Defense. All rights reserved.
               <br className="md:hidden" />
               <span className="hidden md:inline ml-4">Protecting enterprises worldwide since 2024</span>
             </div>

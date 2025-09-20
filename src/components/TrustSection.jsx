@@ -22,7 +22,7 @@ export default function TrustSection() {
         <div className="text-center space-y-16">
           <div>
             <h2 className="text-4xl font-bold mb-4 text-slate-900">
-              Enterprises and MSSPs Rely on Darvin
+              Enterprises and MSSPs Rely on Helxon
             </h2>
             <p className="text-xl text-slate-600">
               Trusted by security teams at leading organizations worldwide

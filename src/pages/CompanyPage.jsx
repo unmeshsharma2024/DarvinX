@@ -14,7 +14,7 @@ export default function CompanyPage() {
   const childPages = [
     {
       title: 'About Us',
-      description: 'Learn about our mission, values, and the team behind Darvin Cyber Defense.',
+      description: 'Learn about our mission, values, and the team behind Helxon Cyber Defense.',
       icon: Building,
       link: '/about',
       color: 'from-blue-500 to-cyan-500',
@@ -50,7 +50,7 @@ export default function CompanyPage() {
             <p className={`text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed transition-colors duration-300 ${
               'text-slate-600'
             }`}>
-              Discover Darvin Cyber Defense - where AI meets human expertise to create 
+              Discover Helxon Cyber Defense - where AI meets human expertise to create 
               the future of enterprise cybersecurity.
             </p>
           </div>
@@ -89,7 +89,7 @@ export default function CompanyPage() {
           <div className="text-center mb-16">
             <h2 className={`text-4xl font-bold mb-4 transition-colors duration-300 ${
               'text-slate-900'
-            }`}>Explore Darvin</h2>
+            }`}>Explore Helxon</h2>
             <p className={`text-xl max-w-2xl mx-auto transition-colors duration-300 ${
               false ? 'text-slate-400' : 'text-slate-600'
             }`}>
@@ -150,12 +150,12 @@ export default function CompanyPage() {
               <h2 className={`text-4xl font-bold mb-6 transition-colors duration-300 ${
                 'text-slate-900'
               }`}>
-                About Darvin Cyber Defense
+                About Helxon Cyber Defense
               </h2>
               <p className={`text-lg mb-6 leading-relaxed transition-colors duration-300 ${
                 'text-slate-600'
               }`}>
-                Founded in 2020, Darvin Cyber Defense emerged from a simple belief: 
+                Founded in 2020, Helxon Cyber Defense emerged from a simple belief: 
                 that enterprise-grade cybersecurity should be accessible to organizations 
                 of all sizes, not just Fortune 500 companies.
               </p>
@@ -208,7 +208,7 @@ export default function CompanyPage() {
           <p className={`text-xl mb-8 transition-colors duration-300 ${
             'text-slate-600'
           }`}>
-            Join hundreds of organizations that trust Darvin to protect their digital assets.
+            Join hundreds of organizations that trust Helxon to protect their digital assets.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 

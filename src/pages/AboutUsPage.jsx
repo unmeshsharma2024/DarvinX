@@ -40,7 +40,7 @@ export default function AboutUsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              About Darvin
+              About Helxon
             </h1>
             <p className="text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed text-slate-600">
               We are cybersecurity professionals dedicated to removing fear from the digital world through intelligent, proactive defense solutions.
@@ -77,7 +77,7 @@ export default function AboutUsPage() {
               <div>
                 <h2 className="text-4xl font-bold mb-6 text-slate-900">Our Vision</h2>
                 <p className="text-xl leading-relaxed text-slate-600 mb-6">
-                  At Darvin, we envision a digital world where businesses operate without fear. Where cyber threats are neutralized before they impact operations, where security teams are empowered with intelligent tools, and where digital transformation accelerates confidently.
+                  At Helxon, we envision a digital world where businesses operate without fear. Where cyber threats are neutralized before they impact operations, where security teams are empowered with intelligent tools, and where digital transformation accelerates confidently.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-600">
                   We believe cybersecurity should be proactive, not reactive. It should enable growth, not hinder it. Our mission is to make enterprise-grade security accessible, intelligent, and human-centered.
@@ -156,13 +156,13 @@ export default function AboutUsPage() {
               <div>
                 <h2 className="text-4xl font-bold mb-6 text-slate-900">Our Story</h2>
                 <p className="text-xl leading-relaxed text-slate-600 mb-6">
-                  Founded by cybersecurity veterans who witnessed firsthand the challenges organizations face in building and maintaining effective security operations, Darvin was born from a simple yet powerful insight: cybersecurity should empower, not paralyze.
+                  Founded by cybersecurity veterans who witnessed firsthand the challenges organizations face in building and maintaining effective security operations, Helxon was born from a simple yet powerful insight: cybersecurity should empower, not paralyze.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-600 mb-6">
                   After years of seeing businesses struggle with complex security tools, overwhelming alerts, and the constant fear of the next attack, our founders set out to create something different. They envisioned a security platform that would be intelligent enough to filter noise, fast enough to stop threats, and human enough to understand business needs.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-600">
-                  Today, Darvin serves hundreds of organizations worldwide, from growing startups to Fortune 500 enterprises, all united by a common goal: operating fearlessly in the digital age.
+                  Today, Helxon serves hundreds of organizations worldwide, from growing startups to Fortune 500 enterprises, all united by a common goal: operating fearlessly in the digital age.
                 </p>
               </div>
             </div>
@@ -185,7 +185,7 @@ export default function AboutUsPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-slate-900">What We Deliver</h2>
             <p className="text-xl max-w-2xl mx-auto text-slate-600">
-              The core capabilities that make Darvin your trusted security partner
+              The core capabilities that make Helxon your trusted security partner
             </p>
           </div>
 
@@ -212,7 +212,7 @@ export default function AboutUsPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-slate-900">Leadership Team</h2>
             <p className="text-xl max-w-2xl mx-auto text-slate-600">
-              Meet the cybersecurity experts leading Darvin's mission to remove fear from the digital world
+              Meet the cybersecurity experts leading Helxon's mission to remove fear from the digital world
             </p>
           </div>
 

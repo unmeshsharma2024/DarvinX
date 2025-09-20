@@ -24,10 +24,10 @@ export default function Header() {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-blue-600">
-                <span className="text-white font-bold text-lg">D</span>
+                <span className="text-white font-bold text-lg">H</span>
               </div>
               <span className="text-xl font-bold text-slate-900">
-                Darvin
+                HELXON
               </span>
             </Link>
           </div>

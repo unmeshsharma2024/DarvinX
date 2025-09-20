@@ -27,7 +27,7 @@ export default function ContactUsPage() {
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['hello@darvin.com', 'support@darvin.com'],
+      details: ['hello@Helxon.com', 'support@Helxon.com'],
       description: 'Get in touch via email for general inquiries and support'
     },
     {
@@ -55,31 +55,31 @@ export default function ContactUsPage() {
       icon: Shield,
       title: 'Security Operations',
       description: 'Technical support, incident response, and platform issues',
-      contact: 'soc@darvin.com'
+      contact: 'soc@Helxon.com'
     },
     {
       icon: Users,
       title: 'Sales & Partnerships',
       description: 'New business, partnerships, and enterprise solutions',
-      contact: 'sales@darvin.com'
+      contact: 'sales@Helxon.com'
     },
     {
       icon: MessageCircle,
       title: 'Customer Success',
       description: 'Account management, training, and optimization support',
-      contact: 'success@darvin.com'
+      contact: 'success@Helxon.com'
     },
     {
       icon: Send,
       title: 'General Support',
       description: 'Billing, account questions, and general inquiries',
-      contact: 'support@darvin.com'
+      contact: 'support@Helxon.com'
     }
   ];
 
   const faqs = [
     {
-      question: 'How quickly can you implement Darvin for our organization?',
+      question: 'How quickly can you implement Helxon for our organization?',
       answer: 'Implementation typically takes 24-48 hours for most organizations. Our team handles the setup process and provides comprehensive onboarding.'
     },
     {
@@ -87,8 +87,8 @@ export default function ContactUsPage() {
       answer: 'Yes, our Security Operations Center operates 24/7/365 with certified security professionals monitoring your environment around the clock.'
     },
     {
-      question: 'Can Darvin integrate with our existing security tools?',
-      answer: 'Absolutely. Darvin integrates with 200+ security tools and platforms through APIs and standard protocols like SIEM, SOAR, and threat intelligence feeds.'
+      question: 'Can Helxon integrate with our existing security tools?',
+      answer: 'Absolutely. Helxon integrates with 200+ security tools and platforms through APIs and standard protocols like SIEM, SOAR, and threat intelligence feeds.'
     },
     {
       question: 'What compliance standards do you support?',
@@ -106,7 +106,7 @@ export default function ContactUsPage() {
               Contact Us
             </h1>
             <p className="text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed text-slate-600">
-              Ready to transform your security posture? Let's discuss how Darvin can help 
+              Ready to transform your security posture? Let's discuss how Helxon can help 
               protect your organization from cyber threats.
             </p>
           </div>
