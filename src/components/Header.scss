@@ -1,0 +1,67 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  &__container {
+    margin: 0 auto;
+    max-width: 80rem; // max-w-7xl equivalent
+    padding: 0 1rem; // px-4 equivalent
+    
+    @media (min-width: 640px) {
+      padding: 0 1.5rem; // sm:px-6 equivalent
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0; // py-4 equivalent
+    
+    @media (min-width: 640px) {
+      padding: 1.5rem 0; // sm:py-6 equivalent
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    transform: scale(1); // Keep full size on all devices
+    
+    @media (max-width: 640px) {
+      transform: scale(0.9); // Slightly smaller on mobile only
+    }
+  }
+
+  &__button {
+    border-radius: 9999px; // rounded-full equivalent
+    padding: 0.5rem 1rem; // px-4 equivalent
+    font-size: 0.875rem; // text-sm equivalent
+    background: transparent;
+    border: 1px solid #2B7FED;
+    color: #2B7FED;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    
+    @media (min-width: 640px) {
+      padding: 0.5rem 1.5rem; // sm:px-6 equivalent
+      font-size: 1rem; // sm:text-base equivalent
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1); // hover:bg-white/10 equivalent
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(43, 127, 237, 0.2);
+    }
+  }
+}
