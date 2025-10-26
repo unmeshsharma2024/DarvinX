@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import ContactUsPage from './pages/ContactUsPage';
 import { Header } from './components/Header';
 import { BottomNavBar } from './components/BottomNavBar';
+import { Footer } from './components/Footer';
 
 function AppContent() {
   return (
@@ -16,6 +17,7 @@ function AppContent() {
         </Routes>
       </main>
       <BottomNavBar />
+      <Footer />
     </div>
   );
 }
