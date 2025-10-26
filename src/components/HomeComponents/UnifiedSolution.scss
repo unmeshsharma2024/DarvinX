@@ -42,7 +42,6 @@
     line-height: 1.1;
     color: #1a2348;
     margin: 0 0 0.5rem 0;
-    letter-spacing: 0.02em;
   }
 
   /* Subtitle below in same dark tone */
@@ -157,11 +156,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 25px rgba(0, 0, 0, 0.15),
+      0 4px 6px rgba(0, 0, 0, 0.06);
+    border-color: rgba(43, 127, 237, 0.3);
+  }
+
+  &:active {
+    transform: translateY(-2px);
+  }
 
   img {
     width: 60px;
     height: 60px;
     object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
   }
 }
 
@@ -171,7 +189,7 @@
 .cluster__robot {
   flex-shrink: 0;
   width: 408px;
-  height: 500px;
+  height: 547px;
   margin-top: -60px; /* lift robot's head up so top row sits above it,
                         exactly like the reference slide */
   margin-bottom: -80px; /* pull bottom row closer to robot hips */

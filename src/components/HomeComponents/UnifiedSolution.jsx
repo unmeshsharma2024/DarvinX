@@ -17,7 +17,7 @@ export function UnifiedSolution() {
         <header className="unified-solution__header">
           <h2 className="unified-solution__title">Unified Solution</h2>
           <p className="unified-solution__subtitle">
-            Monitor everything from a single platform
+            Monitor everything from one centralized platform
           </p>
         </header>
 
