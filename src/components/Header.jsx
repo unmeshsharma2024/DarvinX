@@ -11,12 +11,16 @@ export function Header() {
     navigate('/contact-us');
   };
 
+  const handleLogoClick = () => {
+    navigate('/');
+  };
+
   return (
     <header className="header">
       <div className="header__container">
         <div className="header__content">
           {/* Logo */}
-          <div className="header__logo">
+          <div className="header__logo" onClick={handleLogoClick}>
             <Logo />
           </div>
 

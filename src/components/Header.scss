@@ -34,9 +34,27 @@
     display: flex;
     align-items: center;
     transform: scale(1); // Keep full size on all devices
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+    
+    &:active {
+      transform: scale(0.98);
+    }
     
     @media (max-width: 640px) {
       transform: scale(0.9); // Slightly smaller on mobile only
+      
+      &:hover {
+        transform: scale(0.95);
+      }
+      
+      &:active {
+        transform: scale(0.88);
+      }
     }
   }
 

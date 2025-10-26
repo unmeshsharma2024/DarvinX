@@ -28,25 +28,19 @@ export default function ContactUsPage() {
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['hello@Helxon.com', 'support@Helxon.com'],
+      details: ['contact@Helxon.com'],
       description: 'Get in touch via email for general inquiries and support'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      details: ['+1 (555) 123-4567', '+1 (555) 987-6543'],
+      details: ['+1 (555) 123-4567'],
       description: 'Speak directly with our team during business hours'
-    },
-    {
-      icon: MapPin,
-      title: 'Visit Us',
-      details: ['123 Cyber Street', 'Security City, SC 12345'],
-      description: 'Our headquarters in the heart of the tech district'
     },
     {
       icon: Clock,
       title: 'Business Hours',
-      details: ['Mon-Fri: 9:00 AM - 6:00 PM EST', 'Weekend: Emergency only'],
+      details: ['Mon-Fri: 9:00 AM - 6:00 PM PST', 'Weekend: Emergency only'],
       description: 'When you can reach us for immediate assistance'
     }
   ];
@@ -56,7 +50,7 @@ export default function ContactUsPage() {
       icon: Shield,
       title: 'Security Operations',
       description: 'Technical support, incident response, and platform issues',
-      contact: 'soc@Helxon.com'
+      contact: 'security@Helxon.com'
     },
     {
       icon: Users,
@@ -68,7 +62,7 @@ export default function ContactUsPage() {
       icon: MessageCircle,
       title: 'Customer Success',
       description: 'Account management, training, and optimization support',
-      contact: 'success@Helxon.com'
+      contact: 'contact@Helxon.com'
     },
     {
       icon: Send,
