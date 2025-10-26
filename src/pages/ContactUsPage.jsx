@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Shield, Users } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Shield, Users, CheckCircle, XCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { emailConfig } from '../config/emailConfig';
 import './ContactUsPage.scss';
 
 export default function ContactUsPage() {
@@ -11,10 +13,76 @@ export default function ContactUsPage() {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const [formStatus, setFormStatus] = useState({
+    loading: false,
+    success: false,
+    error: false,
+    message: ''
+  });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setFormStatus({ loading: true, success: false, error: false, message: '' });
+
+    try {
+      // Initialize EmailJS with your public key
+      emailjs.init(emailConfig.publicKey);
+
+      // Prepare template parameters
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        title: formData.company || 'Not provided',
+        message: formData.message,
+        to_email: 'support@helxon.com', // Your support email
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        templateParams
+      );
+
+      console.log('Email sent successfully:', response);
+
+      // Show success message
+      setFormStatus({
+        loading: false,
+        success: true,
+        error: false,
+        message: 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.'
+      });
+
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        message: ''
+      });
+
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setFormStatus({ loading: false, success: false, error: false, message: '' });
+      }, 5000);
+
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      
+      // Show error message
+      setFormStatus({
+        loading: false,
+        success: false,
+        error: true,
+        message: 'Sorry, something went wrong. Please try again or contact us directly at support@helxon.com'
+      });
+
+      // Hide error message after 5 seconds
+      setTimeout(() => {
+        setFormStatus({ loading: false, success: false, error: false, message: '' });
+      }, 5000);
+    }
   };
 
   const handleChange = (e) => {
@@ -115,6 +183,22 @@ export default function ContactUsPage() {
             {/* Contact Form */}
             <div className="contact-us-page__form-wrapper">
               <h2 className="contact-us-page__section-title">Send us a Message</h2>
+              
+              {/* Status Messages */}
+              {formStatus.success && (
+                <div className="contact-us-page__alert contact-us-page__alert--success">
+                  <CheckCircle className="contact-us-page__alert-icon" />
+                  <p>{formStatus.message}</p>
+                </div>
+              )}
+              
+              {formStatus.error && (
+                <div className="contact-us-page__alert contact-us-page__alert--error">
+                  <XCircle className="contact-us-page__alert-icon" />
+                  <p>{formStatus.message}</p>
+                </div>
+              )}
+              
               <form onSubmit={handleSubmit} className="contact-us-page__form">
                 <div className="contact-us-page__form-row">
                   <div className="contact-us-page__form-field">
@@ -176,9 +260,19 @@ export default function ContactUsPage() {
                 <button
                   type="submit"
                   className="contact-us-page__form-submit"
+                  disabled={formStatus.loading}
                 >
-                  <Send className="contact-us-page__form-icon" />
-                  Send Message
+                  {formStatus.loading ? (
+                    <>
+                      <div className="contact-us-page__spinner" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="contact-us-page__form-icon" />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             </div>
