@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { 
   Building2, 
@@ -12,6 +13,7 @@ import {
 import './IndustriesSection.scss';
 
 export function IndustriesSection() {
+  const navigate = useNavigate();
   const colors = {
     blue: '#2B7FED',
     orange: '#FDB022',
@@ -250,6 +252,7 @@ export function IndustriesSection() {
               boxShadow: '0 10px 30px rgba(43, 127, 237, 0.4)',
             }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/contact-us')}
           >
             Contact Us Today
           </motion.button>

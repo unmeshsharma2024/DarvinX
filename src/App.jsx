@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import ContactUsPage from './pages/ContactUsPage';
 import { Header } from './components/Header';
 import { BottomNavBar } from './components/BottomNavBar';
 
@@ -11,6 +12,7 @@ function AppContent() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/contact-us" element={<ContactUsPage />} />
         </Routes>
       </main>
       <BottomNavBar />

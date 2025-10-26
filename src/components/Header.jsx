@@ -1,9 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Logo } from './Logo';
 import { Button } from './ui/Button';
 import './Header.scss';
 
 export function Header() {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate('/contact-us');
+  };
+
   return (
     <header className="header">
       <div className="header__container">
@@ -17,6 +24,7 @@ export function Header() {
           <Button
             variant="outline"
             className="header__button"
+            onClick={handleGetStarted}
           >
             Get Started
           </Button>
