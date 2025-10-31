@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <g>
+    <!-- Shield Icon -->
+    <path d="M20 10 L30 10 L30 25 Q30 35 20 40 Q10 35 10 25 L10 10 Z" fill="#FF6B35" stroke="#FF6B35" stroke-width="2"/>
+    <path d="M18 20 L22 24 L28 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <!-- Text -->
+    <text x="45" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333333">
+      Check Point
+    </text>
+    <text x="45" y="38" font-family="Arial, sans-serif" font-size="10" fill="#666666">
+      Security Software
+    </text>
+  </g>
+</svg>
+

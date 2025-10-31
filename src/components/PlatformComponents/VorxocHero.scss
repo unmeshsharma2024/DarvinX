@@ -1,0 +1,185 @@
+.vorxoc-hero {
+  position: relative;
+  width: 100%;
+  padding: 8rem 0 6rem;
+  background: #ffffff;
+
+  @media (max-width: 768px) {
+    padding: 6rem 0 4rem;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: 640px) {
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  /* Left Side - Text Content */
+  &__text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+  }
+
+  &__logo-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__logo-img {
+    height: auto;
+    width: auto;
+    max-height: 10rem;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    
+    @media (min-width: 1024px) {
+      max-height: 14rem;
+    }
+  }
+
+  &__title {
+    font-family: 'Inter', 'Poppins', ui-sans-serif, system-ui, -apple-system,
+      Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    letter-spacing: -0.02em;
+
+    // Title lines - large but significantly smaller than VORXOC logo
+    span {
+      display: block;
+      line-height: 0.5;
+      font-size: clamp(2.2rem, 5vw, 1.75rem);
+      margin-bottom: 0.25rem;
+    }
+
+    &--green {
+      color: #33CC00; // Bright green from image
+      font-size: clamp(3.5rem, 5vw, 1.75rem) !important;
+    }
+
+    &--black {
+      color: #333333; // Dark gray/black from image
+    }
+    &--blackSmall {
+      color: #333333; // Dark gray/black from image
+      font-size: clamp(1.8rem, 5vw, 1.75rem) !important;
+      line-height: 0.7 !important;
+    }
+  }
+
+  &__description {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: clamp(1rem, 1.75vw, 1.125rem);
+    line-height: 1.6;
+    color: #666666; // Medium gray from image
+    max-width: 36rem;
+    margin: 3.5rem 0 1.75rem 0;
+    font-weight: 400;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #007BFF; // Exact blue from image
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 1.5rem; // Less rounded to match image
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:hover {
+      background: #0056b3; // Darker blue on hover
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+      background: #004085;
+    }
+
+    span {
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+        Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    }
+  }
+
+  &__cta-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Right Side - Illustration */
+  &__illustration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &__illustration-wrapper {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    
+    @media (min-width: 1024px) {
+      max-width: 700px;
+    }
+  }
+
+  &__illustration-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .vorxoc-hero {
+    &__text {
+      text-align: center;
+      align-items: center;
+    }
+
+    &__cta {
+      align-self: center;
+    }
+
+    &__description {
+      text-align: center;
+    }
+  }
+}
+

@@ -1,0 +1,176 @@
+.security-tools-integration {
+  width: 100%;
+  padding: 6rem 0;
+  background: #ffffff;
+
+  @media (max-width: 768px) {
+    padding: 4rem 0;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: 640px) {
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-family: 'Inter', 'Poppins', ui-sans-serif, system-ui, -apple-system,
+      Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #33CC00;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  &__description {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.6;
+    color: #333333;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+
+  &__filters {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  &__filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: 0.5rem;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #666666;
+
+    &:hover {
+      background: #f9f9f9;
+      border-color: #33CC00;
+    }
+
+    &.active {
+      background: #33CC00;
+      border-color: #33CC00;
+      color: #ffffff;
+
+      .security-tools-integration__filter-icon {
+        color: #ffffff;
+      }
+    }
+  }
+
+  &__filter-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    color: #33CC00;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      grid-template-columns: auto 1fr;
+      gap: 3rem;
+    }
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__category {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333333;
+    padding: 0.85rem 1.25rem;
+    background: transparent;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      border-left-color: #33CC00;
+      background: #f9f9f9;
+    }
+  }
+
+  &__logos-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  &__logos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    img {
+      width: 100%;
+      max-width: 120px;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      justify-self: center;
+
+      &:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__note {
+    text-align: center;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #666666;
+    margin: 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e5e5;
+  }
+}
+
