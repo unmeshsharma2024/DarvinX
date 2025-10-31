@@ -45,16 +45,51 @@
       transform: scale(0.98);
     }
     
-    @media (max-width: 640px) {
-      transform: scale(0.9); // Slightly smaller on mobile only
+    &-img {
+      width: 156px;
+      height: 51px;
+      object-fit: contain;
+      display: block;
+    }
+    
+    @media (max-width: 768px) {
+      transform: scale(0.85);
       
       &:hover {
-        transform: scale(0.95);
+        transform: scale(0.9);
       }
       
       &:active {
-        transform: scale(0.88);
+        transform: scale(0.83);
       }
+      
+      .header__logo-img {
+        width: 130px;
+        height: 42px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      transform: scale(0.75);
+      
+      &:hover {
+        transform: scale(0.8);
+      }
+      
+      &:active {
+        transform: scale(0.73);
+      }
+      
+      .header__logo-img {
+        width: 110px;
+        height: 36px;
+      }
+    }
+  }
+
+  &--white {
+    .header__logo {
+      // Logo is white in About Us hero section via SVG
     }
   }
 
@@ -67,10 +102,16 @@
     color: #2B7FED;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+    white-space: nowrap;
     
     @media (min-width: 640px) {
       padding: 0.5rem 1.5rem; // sm:px-6 equivalent
       font-size: 1rem; // sm:text-base equivalent
+    }
+
+    @media (max-width: 480px) {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.8rem;
     }
 
     &:hover {
@@ -80,6 +121,22 @@
     &:focus {
       outline: none;
       box-shadow: 0 0 0 2px rgba(43, 127, 237, 0.2);
+    }
+
+    &--white {
+      border: 1px solid #ffffff !important;
+      color: #ffffff !important;
+      background: transparent !important;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-color: #ffffff !important;
+        color: #ffffff !important;
+      }
+      
+      &:focus {
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) !important;
+      }
     }
   }
 }
