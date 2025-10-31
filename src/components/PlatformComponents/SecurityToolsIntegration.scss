@@ -116,13 +116,23 @@
     color: #333333;
     padding: 0.85rem 1.25rem;
     background: transparent;
+    border: none;
     border-left: 3px solid transparent;
     transition: all 0.2s ease;
     cursor: pointer;
+    text-align: left;
+    width: 100%;
 
     &:hover {
       border-left-color: #33CC00;
       background: #f9f9f9;
+    }
+
+    &.active {
+      border-left-color: #33CC00;
+      background: #f0f9ff;
+      color: #33CC00;
+      font-weight: 600;
     }
   }
 
@@ -149,8 +159,6 @@
       max-width: 120px;
       height: auto;
       object-fit: contain;
-      filter: grayscale(100%);
-      opacity: 0.6;
       transition: all 0.3s ease;
       justify-self: center;
 
