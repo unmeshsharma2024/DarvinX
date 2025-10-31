@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './BottomNavBar.scss';
 
 export function BottomNavBar() {
+  const navigate = useNavigate();
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const toggleDropdown = (menu) => {
@@ -12,7 +14,10 @@ export function BottomNavBar() {
     <nav className="bottom-nav">
       <div className="bottom-nav__container">
         {/* Home Icon */}
-        <button className="bottom-nav__item bottom-nav__item--home">
+        <button 
+          className="bottom-nav__item bottom-nav__item--home"
+          onClick={() => navigate('/')}
+        >
           <svg 
             width="24" 
             height="24" 
@@ -28,35 +33,13 @@ export function BottomNavBar() {
           </svg>
         </button>
 
-        {/* Personal Dropdown */}
-        <div className="bottom-nav__item bottom-nav__item--dropdown">
-          <button 
-            className="bottom-nav__button"
-            onClick={() => toggleDropdown('personal')}
-          >
-            <span>Personal</span>
-            <svg 
-              width="16" 
-              height="16" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-              className={`dropdown-icon ${activeDropdown === 'personal' ? 'open' : ''}`}
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-          {activeDropdown === 'personal' && (
-            <div className="bottom-nav__dropdown">
-              <a href="#personal-account" className="bottom-nav__dropdown-item">Account</a>
-              <a href="#personal-settings" className="bottom-nav__dropdown-item">Settings</a>
-              <a href="#personal-profile" className="bottom-nav__dropdown-item">Profile</a>
-            </div>
-          )}
-        </div>
+        {/* Platform Link */}
+        <button 
+          className="bottom-nav__item bottom-nav__item--link"
+          onClick={() => navigate('/platform')}
+        >
+          <span>Platform</span>
+        </button>
 
         {/* Business with External Link */}
         <a 
@@ -107,7 +90,12 @@ export function BottomNavBar() {
             <div className="bottom-nav__dropdown">
               <a href="#company-about" className="bottom-nav__dropdown-item">About Us</a>
               <a href="#company-careers" className="bottom-nav__dropdown-item">Careers</a>
-              <a href="#company-contact" className="bottom-nav__dropdown-item">Contact</a>
+              <button 
+                onClick={() => navigate('/contact-us')} 
+                className="bottom-nav__dropdown-item"
+              >
+                Contact
+              </button>
             </div>
           )}
         </div>
