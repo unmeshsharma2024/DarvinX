@@ -45,7 +45,7 @@ export function UnifiedSolution() {
               </div>
 
               <div className="cluster__robot">
-                <Spline scene="robotScene.splinecode" wasmPath="/" />
+                {/* <Spline scene="robotScene.splinecode" wasmPath="/" /> */}
               </div>
 
               <div className="cluster__card">
