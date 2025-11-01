@@ -1,125 +1,190 @@
 .vorxoc-hero {
   position: relative;
   width: 100%;
-  padding: 8rem 0 6rem;
   background: #ffffff;
 
-  @media (max-width: 768px) {
-    padding: 6rem 0 4rem;
+  /* Hero Section with Green Background */
+  &__hero {
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    background: #ffffff;
+    padding: clamp(5.5rem, 14vw, 8rem) 0 clamp(6rem, 16vw, 9.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(120%, 165vw, 200%);
+      height: clamp(70%, 75vw, 90%);
+      background: #33CC00; // Bright green from image
+      border-bottom-left-radius: 48% 38%;
+      border-bottom-right-radius: 48% 38%;
+      z-index: -1;
+    }
+
+    @media (max-width: 1024px) {
+      padding: clamp(4.5rem, 12vw, 6rem) 0 clamp(6rem, 20vw, 9rem);
+    }
+
+    @media (max-width: 768px) {
+      padding: clamp(3.5rem, 16vw, 4.5rem) 0 clamp(5rem, 24vw, 7.5rem);
+    }
+  }
+
+  &__hero-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.5rem, 4vw, 2.75rem);
+    text-align: center;
+    max-width: 52rem;
+    width: 100%;
+  }
+
+  &__hero-logo {
+    width: clamp(300px, 40vw, 500px);
+    height: clamp(300px, 40vw, 500px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 20px 50px rgba(51, 204, 0, 0.35));
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  /* Bottom Content Section */
+  &__content {
+    padding: clamp(4rem, 10vw, 6rem) 0;
+    background: #ffffff;
   }
 
   &__container {
     width: 100%;
     max-width: 80rem;
     margin: 0 auto;
-    padding: 0 1rem;
-
-    @media (min-width: 640px) {
-      padding: 0 1.5rem;
-    }
+    padding: 0 clamp(1.5rem, 4vw, 3rem);
   }
 
-  &__content {
+  &__content-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: clamp(3rem, 8vw, 5rem);
     align-items: center;
 
     @media (min-width: 1024px) {
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: clamp(4rem, 10vw, 6rem);
     }
   }
 
-  /* Left Side - Text Content */
   &__text {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     gap: 0;
   }
 
-  &__logo-wrapper {
+  &__illustration {
+    width: 100%;
+    max-width: 600px;
+    height: 600px;
+    margin: 0 auto;
     display: flex;
-    justify-content: flex-start;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    align-items: center;
+    justify-content: center;
+    border-radius: clamp(1rem, 3vw, 1.5rem);
+    overflow: hidden;
 
-  &__logo-img {
-    height: auto;
-    width: auto;
-    max-height: 10rem;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-    
-    @media (min-width: 1024px) {
-      max-height: 14rem;
+    > * {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 768px) {
+      height: 400px;
+      max-width: 100%;
     }
   }
 
   &__title {
-    font-family: 'Inter', 'Poppins', ui-sans-serif, system-ui, -apple-system,
-      Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
     font-weight: 700;
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 clamp(1.5rem, 4vw, 2rem) 0;
     letter-spacing: -0.02em;
 
-    // Title lines - large but significantly smaller than VORXOC logo
     span {
       display: block;
-      line-height: 0.5;
-      font-size: clamp(2.2rem, 5vw, 1.75rem);
-      margin-bottom: 0.25rem;
+      line-height: 1.2;
     }
 
     &--green {
-      color: #33CC00; // Bright green from image
-      font-size: clamp(3.5rem, 5vw, 1.75rem) !important;
+      color: #33CC00;
+      font-size: clamp(2rem, 5vw, 2.75rem);
     }
 
     &--black {
-      color: #333333; // Dark gray/black from image
-    }
-    &--blackSmall {
-      color: #333333; // Dark gray/black from image
-      font-size: clamp(1.8rem, 5vw, 1.75rem) !important;
-      line-height: 0.7 !important;
+      color: #333333;
+      font-size: clamp(1.75rem, 4.5vw, 2.25rem);
     }
   }
 
   &__description {
-    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI,
       Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    font-size: clamp(1rem, 1.75vw, 1.125rem);
+    font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.6;
-    color: #666666; // Medium gray from image
-    max-width: 36rem;
-    margin: 3.5rem 0 1.75rem 0;
+    color: #666666;
+    margin: 0 0 clamp(2rem, 5vw, 2.5rem) 0;
     font-weight: 400;
+    max-width: 40rem;
   }
 
   &__cta {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: #007BFF; // Exact blue from image
+    background: #007BFF;
     color: #ffffff;
     font-weight: 600;
-    font-size: 1rem;
-    padding: 0.6rem 1.5rem;
-    border-radius: 1.5rem; // Less rounded to match image
+    font-size: clamp(0.95rem, 2vw, 1rem);
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    border-radius: 1.5rem;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 0;
     max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
 
     &:hover {
-      background: #0056b3; // Darker blue on hover
-      transform: translateY(-1px);
+      background: #0056b3;
+      transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
     }
 
@@ -127,58 +192,23 @@
       transform: translateY(0);
       background: #004085;
     }
-
-    span {
-      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
-        Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    }
   }
 
   &__cta-icon {
     width: 1.25rem;
     height: 1.25rem;
   }
-
-  /* Right Side - Illustration */
-  &__illustration {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-
-  &__illustration-wrapper {
-    width: 100%;
-    max-width: 600px;
-    position: relative;
-    
-    @media (min-width: 1024px) {
-      max-width: 700px;
-    }
-  }
-
-  &__illustration-image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-  }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .vorxoc-hero {
     &__text {
-      text-align: center;
-      align-items: center;
+      text-align: left;
     }
 
     &__cta {
-      align-self: center;
-    }
-
-    &__description {
-      text-align: center;
+      width: 100%;
+      justify-content: center;
     }
   }
 }

@@ -17,7 +17,7 @@
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     line-height: 1.1;
     text-align: center;
-    color: #0f7df4;
+    color: #33CC00;
     margin: 0 0 1rem;
   }
 
@@ -95,7 +95,7 @@
     }
 
     &.active {
-      background: linear-gradient(135deg, #081766 0%, #1238c9 100%);
+      background: #33CC00;
       color: #ffffff;
       box-shadow: 0 28px 65px rgba(8, 23, 102, 0.35);
       font-weight: 600;

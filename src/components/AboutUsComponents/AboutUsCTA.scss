@@ -53,6 +53,10 @@
     &--secure {
       color: #0098fd;
     }
+
+    &--faq {
+      font-size: clamp(2rem, 4vw, 36px);
+    }
   }
 
   &__buttons {
