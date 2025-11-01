@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { SplineBackground } from './SplineBackground';
+// import { SplineBackground } from './SplineBackground';
 import './LandingHero.scss';
 
 export function LandingHero() {
@@ -32,7 +32,7 @@ export function LandingHero() {
   return (
     <section className="landing-hero">
       <div className="landing-hero__background">
-        <SplineBackground />
+        {/* <SplineBackground /> */}
       </div>
 
       <div className="landing-hero__container">
