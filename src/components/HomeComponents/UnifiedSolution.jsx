@@ -1,5 +1,5 @@
 import React from 'react';
-import Spline from '@splinetool/react-spline';
+//import Spline from '@splinetool/react-spline';
 
 import fireWallIcon from '../../assets/fireWall.svg';   // firewall/flame
 import endpointIcon from '../../assets/endpoint.svg';   // network / gear
