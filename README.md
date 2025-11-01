@@ -28,3 +28,17 @@ Continue building your app on:
 2. Deploy your chats from the v0 interface
 3. Changes are automatically pushed to this repository
 4. Vercel deploys the latest version from this repository
+
+## Sitemap Generation
+
+This project uses `sitemap-generator-cli` to generate a sitemap for SEO purposes.
+
+### Usage
+
+After deploying your site, generate a sitemap by running:
+
+```bash
+npm run generate-sitemap
+```
+
+**Note:** Make sure to update the URL in `package.json` scripts section from `https://yourdomain.com` to your actual domain before generating the sitemap.
