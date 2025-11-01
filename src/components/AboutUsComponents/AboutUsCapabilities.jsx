@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import ShieldIcon from '../../assets/AboutUs_icons/shield 1.svg';
+import { Shield, Eye, Zap, Handshake } from 'lucide-react';
 import './AboutUsCapabilities.scss';
 
 const CAPABILITIES = [
@@ -8,27 +8,43 @@ const CAPABILITIES = [
     title: 'Protactive Defense',
     description:
       "We don't just stop attacks — we stop fear. Our SOC solutions provide proactive, scalable, and intelligent defense systems.",
+    icon: Shield,
+    iconColor: '#FFD141',
   },
   {
     title: 'Visibility & Transparency',
     description:
       'Unified telemetry, dashboards, and reporting keep every stakeholder aligned with real-time security insights.',
+    icon: Eye,
+    iconColor: '#0098FD',
   },
   {
     title: 'Speed & Efficiency',
     description:
       'Automation and guided playbooks accelerate detection and response so threats are contained before they disrupt operations.',
+    icon: Zap,
+    iconColor: '#FF6B35',
   },
   {
     title: 'Partnership & Trust',
     description:
       'Our experts work alongside your teams to tailor strategies, strengthen resilience, and build long-term confidence.',
+    icon: Handshake,
+    iconColor: '#00C896',
   },
 ];
 
 export function AboutUsCapabilities() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeCapability = CAPABILITIES[activeIndex];
+
+  // Helper function to convert hex to rgba
+  const hexToRgba = (hex, alpha) => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
 
   return (
     <section className="about-us-capabilities">
@@ -96,8 +112,17 @@ export function AboutUsCapabilities() {
                 initial={{ opacity: 0, scale: 0.7 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.45, delay: 0.1 }}
+                style={{
+                  '--icon-color': activeCapability.iconColor,
+                  backgroundColor: hexToRgba(activeCapability.iconColor, 0.18),
+                  boxShadow: `0 22px 60px ${hexToRgba(activeCapability.iconColor, 0.4)}`,
+                }}
               >
-                <img src={ShieldIcon} alt="Shield" role="presentation" />
+                {React.createElement(activeCapability.icon, {
+                  size: '100%',
+                  strokeWidth: 1.5,
+                  color: activeCapability.iconColor,
+                })}
               </motion.div>
               <motion.p
                 className="about-us-capabilities__panel-text"

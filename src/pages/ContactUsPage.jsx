@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../config/emailConfig';
 import LogoIcon from '../assets/contactUsPageIcons/LOGO.svg';
@@ -12,7 +13,6 @@ import ShieldIcon from '../assets/contactUsPageIcons/Shield.svg';
 import UsersIcon from '../assets/contactUsPageIcons/Users.svg';
 import ThumbsUpIcon from '../assets/contactUsPageIcons/Thumbs up.svg';
 import MessageCircleIcon from '../assets/contactUsPageIcons/Message circle.svg';
-import IllustrationImage from '../assets/AboutUs_img/vecteezy_ai-generated-group-of-business-people-having-a-meeting-at_36756274 1.png';
 import './ContactUsPage.scss';
 
 export default function ContactUsPage() {
@@ -300,7 +300,11 @@ export default function ContactUsPage() {
                 animate={{ rotate: 0, scale: 1 }}
                 transition={{ duration: 0.8, delay: 1.7 }}
               >
-                <img src={IllustrationImage} alt="Team illustration" />
+                <DotLottieReact
+                  src="https://lottie.host/ee01f240-c125-4a09-95cd-3ae2de372d7e/usds4LHpI7.lottie"
+                  loop
+                  autoplay
+                />
               </motion.div>
 
               <div className="contact-us-page__info">

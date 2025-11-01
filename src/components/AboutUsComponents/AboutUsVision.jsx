@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import ArrowLeftCircle from '../../assets/AboutUs_icons/Arrow left-circle.svg';
 import ArrowRightCircle from '../../assets/AboutUs_icons/Arrow right-circle.svg';
-import MeetingImage from '../../assets/AboutUs_img/vecteezy_ai-generated-group-of-business-people-having-a-meeting-at_36756274 1.png';
 import './AboutUsVision.scss';
 
 export function AboutUsVision() {
@@ -118,11 +118,13 @@ After years of seeing businesses struggle with complex security tools, overwhelm
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <img
-              src={MeetingImage}
-              alt="Team meeting"
-              className="about-us-vision__image"
-            />
+            <div className="about-us-vision__image">
+              <DotLottieReact
+                src="https://lottie.host/339da2da-03c8-42fc-a29a-efe622af17c4/SVXFt3sorE.lottie"
+                loop
+                autoplay
+              />
+            </div>
           </motion.div>
         </div>
       </div>
