@@ -41,29 +41,13 @@ export function BottomNavBar() {
           <span>Platform</span>
         </button>
 
-        {/* Business with External Link */}
-        <a 
-          href="#business" 
+        {/* About Us Link */}
+        <button 
           className="bottom-nav__item bottom-nav__item--link"
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={() => navigate('/about-us')}
         >
-          <span>Business</span>
-          <svg 
-            width="16" 
-            height="16" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          >
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-            <polyline points="15 3 21 3 21 9" />
-            <line x1="10" y1="14" x2="21" y2="3" />
-          </svg>
-        </a>
+          <span>About Us</span>
+        </button>
 
         {/* Company Dropdown */}
         <div className="bottom-nav__item bottom-nav__item--dropdown">
@@ -88,13 +72,23 @@ export function BottomNavBar() {
           </button>
           {activeDropdown === 'company' && (
             <div className="bottom-nav__dropdown">
-              <a href="#company-about" className="bottom-nav__dropdown-item">About Us</a>
-              <a href="#company-careers" className="bottom-nav__dropdown-item">Careers</a>
               <button 
-                onClick={() => navigate('/contact-us')} 
+                onClick={() => {
+                  navigate('/contact-us');
+                  setActiveDropdown(null);
+                }} 
                 className="bottom-nav__dropdown-item"
               >
-                Contact
+                Contact Us
+              </button>
+              <button 
+                onClick={() => {
+                  navigate('/faq');
+                  setActiveDropdown(null);
+                }} 
+                className="bottom-nav__dropdown-item"
+              >
+                FAQ
               </button>
             </div>
           )}
