@@ -108,7 +108,7 @@
 
   /* Main Section */
   &__main {
-    padding: clamp(4.5rem, 10vw, 7rem) 0;
+    padding: clamp(4.5rem, 10vw, 7rem) 0 clamp(3rem, 8vw, 5rem);
     background: #ffffff;
   }
 

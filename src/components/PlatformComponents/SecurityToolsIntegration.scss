@@ -1,184 +1,227 @@
 .security-tools-integration {
   width: 100%;
-  padding: 6rem 0;
+  padding: clamp(4.25rem, 9vw, 6.5rem) 0 clamp(5rem, 11vw, 7.5rem);
   background: #ffffff;
-
-  @media (max-width: 768px) {
-    padding: 4rem 0;
-  }
 
   &__container {
     width: 100%;
     max-width: 80rem;
     margin: 0 auto;
-    padding: 0 1rem;
-
-    @media (min-width: 640px) {
-      padding: 0 1.5rem;
-    }
-  }
-
-  &__header {
-    text-align: center;
-    margin-bottom: 3rem;
+    padding: 0 clamp(1.5rem, 4vw, 3rem);
   }
 
   &__title {
-    font-family: 'Inter', 'Poppins', ui-sans-serif, system-ui, -apple-system,
-      Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
     font-weight: 700;
-    color: #33CC00;
-    margin-bottom: 1rem;
-    line-height: 1.2;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    text-align: center;
+    color: #0f7df4;
+    margin: 0 0 1rem;
   }
 
-  &__description {
-    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+  &__subtitle {
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI,
       Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.6;
-    color: #333333;
-    max-width: 48rem;
+    font-weight: 400;
+    font-size: clamp(1.1rem, 2.4vw, 1.75rem);
+    line-height: 1.4;
+    text-align: center;
+    color: #071635;
+    margin: 0 0 clamp(2.75rem, 6vw, 4rem);
+  }
+
+  &__surface {
+    position: relative;
+    width: 100%;
+    max-width: clamp(20rem, 90vw, 68rem);
     margin: 0 auto;
   }
 
-  &__filters {
+  &__surface-background {
+    position: absolute;
+    inset: 0;
+    border-radius: clamp(2.5rem, 8vw, 4rem);
+    background: linear-gradient(180deg, #f6f7fb 0%, #f1f3fa 50%, #ffffff 100%);
+    box-shadow: 0 32px 85px rgba(8, 23, 102, 0.18);
+    z-index: 0;
+  }
+
+  &__surface-inner {
+    position: relative;
+    z-index: 1;
     display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: clamp(2rem, 6vw, 5rem);
+    padding: clamp(3rem, 7vw, 4.5rem) clamp(2.5rem, 6vw, 4.5rem);
   }
 
-  &__filter {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.65rem 1.25rem;
-    border-radius: 0.5rem;
-    background: #ffffff;
-    border: 1px solid #e5e5e5;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
-      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #666666;
-
-    &:hover {
-      background: #f9f9f9;
-      border-color: #33CC00;
-    }
-
-    &.active {
-      background: #33CC00;
-      border-color: #33CC00;
-      color: #ffffff;
-
-      .security-tools-integration__filter-icon {
-        color: #ffffff;
-      }
-    }
-  }
-
-  &__filter-icon {
-    width: 1.1rem;
-    height: 1.1rem;
-    color: #33CC00;
-  }
-
-  &__content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-
-    @media (min-width: 768px) {
-      grid-template-columns: auto 1fr;
-      gap: 3rem;
-    }
-  }
-
-  &__categories {
+  &__tabs {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: clamp(1rem, 3vw, 1.75rem);
+    width: min(18rem, 100%);
   }
 
-  &__category {
-    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+  &__tab {
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI,
       Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    font-size: 0.95rem;
     font-weight: 500;
-    color: #333333;
-    padding: 0.85rem 1.25rem;
-    background: transparent;
+    font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+    line-height: 1.25;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 clamp(1.75rem, 4vw, 2.5rem);
+    min-height: clamp(3.5rem, 8vw, 4.5rem);
+    border-radius: 999px;
     border: none;
-    border-left: 3px solid transparent;
-    transition: all 0.2s ease;
+    background: linear-gradient(180deg, #ffffff 0%, #f9f9ff 100%);
+    color: #0a1443;
+    box-shadow: 0 18px 45px rgba(8, 23, 102, 0.1);
     cursor: pointer;
-    text-align: left;
-    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+
+    span {
+      pointer-events: none;
+      white-space: pre;
+    }
 
     &:hover {
-      border-left-color: #33CC00;
-      background: #f9f9f9;
+      transform: translateY(-5px);
+      box-shadow: 0 24px 55px rgba(8, 23, 102, 0.2);
     }
 
     &.active {
-      border-left-color: #33CC00;
-      background: #f0f9ff;
-      color: #33CC00;
+      background: linear-gradient(135deg, #081766 0%, #1238c9 100%);
+      color: #ffffff;
+      box-shadow: 0 28px 65px rgba(8, 23, 102, 0.35);
       font-weight: 600;
     }
   }
 
-  &__logos-card {
+  &__panel {
+    flex: 1;
     background: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 1rem;
-    padding: 2.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border-radius: clamp(2rem, 7vw, 3.5rem);
+    padding: clamp(3rem, 7vw, 4.25rem) clamp(2.5rem, 6vw, 3.75rem);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+      0 28px 70px rgba(8, 23, 102, 0.16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 2rem);
   }
 
   &__logos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-    margin-bottom: 2rem;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    width: 100%;
 
     @media (min-width: 480px) {
       grid-template-columns: repeat(3, 1fr);
     }
+  }
 
-    img {
-      width: 100%;
-      max-width: 120px;
-      height: auto;
-      object-fit: contain;
-      transition: all 0.3s ease;
-      justify-self: center;
+  &__logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.75rem, 2vw, 1rem);
+  }
 
-      &:hover {
-        filter: grayscale(0%);
-        opacity: 1;
-        transform: scale(1.05);
-      }
-    }
+  &__logo {
+    width: 100%;
+    max-width: clamp(80px, 12vw, 120px);
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  &__logo-wrapper:hover &__logo {
+    filter: grayscale(0%);
+    opacity: 1;
   }
 
   &__note {
-    text-align: center;
-    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI,
       Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    font-size: 0.9rem;
+    font-weight: 400;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.65;
     color: #666666;
-    margin: 0;
-    padding-top: 1.5rem;
+    margin: clamp(1rem, 3vw, 1.5rem) 0 0;
+    padding-top: clamp(1rem, 3vw, 1.5rem);
     border-top: 1px solid #e5e5e5;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .security-tools-integration {
+    &__surface-inner {
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    &__tabs {
+      width: 100%;
+      max-width: 26rem;
+    }
+
+    &__panel {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .security-tools-integration {
+    padding: clamp(3.5rem, 12vw, 4.5rem) 0 clamp(4rem, 14vw, 5.5rem);
+
+    &__surface-inner {
+      padding: clamp(2.5rem, 8vw, 3.25rem) clamp(1.75rem, 7vw, 2.5rem);
+    }
+
+    &__tab {
+      min-height: clamp(3.25rem, 12vw, 3.75rem);
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      padding: 0 clamp(1.25rem, 5vw, 1.75rem);
+    }
+
+    &__panel {
+      padding: clamp(2.5rem, 9vw, 3.25rem) clamp(1.75rem, 7vw, 2.5rem);
+      border-radius: clamp(1.75rem, 10vw, 2.5rem);
+    }
+
+    &__logos {
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(1rem, 5vw, 1.5rem);
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .security-tools-integration {
+    &__surface-background {
+      border-radius: clamp(1.5rem, 14vw, 2rem);
+    }
+
+    &__surface-inner {
+      padding: clamp(2rem, 10vw, 2.75rem) clamp(1.5rem, 8vw, 2rem);
+    }
+
+    &__logos {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
   }
 }
 

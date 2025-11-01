@@ -19,6 +19,17 @@ export function AboutUsCTA() {
     <section className="about-us-cta">
       <div className="about-us-cta__container">
         <div className="about-us-cta__content">
+
+          <motion.h2
+            className="about-us-cta__title"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            Ready to Secure Your Business?
+          </motion.h2>
+
           <motion.p
             className="about-us-cta__paragraph"
             initial={{ opacity: 0, y: 20 }}
@@ -28,16 +39,6 @@ export function AboutUsCTA() {
           >
             Join hundreds of companies that trust VorXOC to protect their digital assets.
           </motion.p>
-
-          <motion.h2
-            className="about-us-cta__title"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            Ready to <span className="about-us-cta__title--secure">Secure</span> Your Business?
-          </motion.h2>
 
           <motion.div
             className="about-us-cta__buttons"

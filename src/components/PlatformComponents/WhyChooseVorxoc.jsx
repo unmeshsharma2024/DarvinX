@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { Users, Clock, TrendingUp } from 'lucide-react';
 import './WhyChooseVorxoc.scss';
 
@@ -27,7 +28,13 @@ export function WhyChooseVorxoc() {
   return (
     <section className="why-choose-vorxoc">
       <div className="why-choose-vorxoc__container">
-        <div className="why-choose-vorxoc__header">
+        <motion.div
+          className="why-choose-vorxoc__header"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="why-choose-vorxoc__title">Why Choose VorXOC Solutions?</h2>
           <p className="why-choose-vorxoc__description">
             VorXOC (Vortex Operations Center) is Helxon's proprietary Security Operations and
@@ -39,19 +46,33 @@ export function WhyChooseVorxoc() {
             threat intelligence, VorXOC transforms traditional SOC workflows into an agile,
             proactive defense engine.
           </p>
-        </div>
+        </motion.div>
 
         <div className="why-choose-vorxoc__grid">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div key={index} className="why-choose-vorxoc__card">
-                <div className="why-choose-vorxoc__icon-wrapper">
+              <motion.div
+                key={index}
+                className="why-choose-vorxoc__card"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+              >
+                <motion.div
+                  className="why-choose-vorxoc__icon-wrapper"
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.15, type: 'spring' }}
+                >
                   <Icon className="why-choose-vorxoc__icon" />
-                </div>
+                </motion.div>
                 <h3 className="why-choose-vorxoc__card-title">{feature.title}</h3>
                 <p className="why-choose-vorxoc__card-description">{feature.description}</p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import HeroLogo from '../assets/AboutUs_img/Asset 4 (1) 1.png';
 import { ChevronDown } from 'lucide-react';
+import { AboutUsCTA } from '../components/AboutUsComponents/AboutUsCTA';
 import './FAQPage.scss';
 
 export default function FAQPage() {
@@ -26,7 +27,7 @@ export default function FAQPage() {
     },
   ];
 
-  const toggleFAQ = (index: number) => {
+  const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -118,6 +119,9 @@ export default function FAQPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <AboutUsCTA />
     </div>
   );
 }

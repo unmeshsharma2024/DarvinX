@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { Check } from 'lucide-react';
 import './SecurityToolsIntegration.scss';
 
@@ -97,56 +98,93 @@ export function SecurityToolsIntegration() {
     <section className="security-tools-integration">
       <div className="security-tools-integration__container">
         {/* Header */}
-        <div className="security-tools-integration__header">
-          <h2 className="security-tools-integration__title">Security Tools Integration</h2>
-          <p className="security-tools-integration__description">
-            VorXOC seamlessly integrates with your existing security infrastructure. We support all major security platforms and tools.
-          </p>
-        </div>
+        <motion.h2
+          className="security-tools-integration__title"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Security Tools Integration
+        </motion.h2>
+        <motion.p
+          className="security-tools-integration__subtitle"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          VorXOC seamlessly integrates with your existing security infrastructure. We support all major security platforms and tools.
+        </motion.p>
 
-        {/* Filters */}
-        {/* <div className="security-tools-integration__filters">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              className={`security-tools-integration__filter ${
-                selectedFilter === filter ? 'active' : ''
-              }`}
-              onClick={() => setSelectedFilter(filter)}
-            >
-              <Check className="security-tools-integration__filter-icon" />
-              <span>{filter}</span>
-            </button>
-          ))}
-        </div> */}
+        <div className="security-tools-integration__surface">
+          <motion.div
+            className="security-tools-integration__surface-background"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          />
 
-        {/* Content Grid */}
-        <div className="security-tools-integration__content">
-          {/* Categories */}
-          <div className="security-tools-integration__categories">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`security-tools-integration__category ${
-                  selectedCategory === category ? 'active' : ''
-                }`}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
-          {/* Logos Card */}
-          <div className="security-tools-integration__logos-card">
-            <div className="security-tools-integration__logos">
-              {logosData[selectedCategory].map((item, index) => (
-                <img key={index} src={item.logo} alt={item.name} />
+          <div className="security-tools-integration__surface-inner">
+            {/* Categories Tabs */}
+            <div className="security-tools-integration__tabs">
+              {categories.map((category, index) => (
+                <motion.button
+                  key={category}
+                  type="button"
+                  className={`security-tools-integration__tab ${
+                    selectedCategory === category ? 'active' : ''
+                  }`}
+                  onClick={() => setSelectedCategory(category)}
+                  aria-pressed={selectedCategory === category}
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  whileHover={{ scale: selectedCategory === category ? 1 : 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  <span>{category}</span>
+                </motion.button>
               ))}
             </div>
-            <p className="security-tools-integration__note">
-              +Many more integrations available
-            </p>
+
+            {/* Logos Panel */}
+            <motion.div
+              key={selectedCategory}
+              className="security-tools-integration__panel"
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="security-tools-integration__logos">
+                {logosData[selectedCategory].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="security-tools-integration__logo-wrapper"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <img
+                      src={item.logo}
+                      alt={item.name}
+                      className="security-tools-integration__logo"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+              <motion.p
+                className="security-tools-integration__note"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+              >
+                +Many more integrations available
+              </motion.p>
+            </motion.div>
           </div>
         </div>
       </div>
