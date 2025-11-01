@@ -1,18 +1,14 @@
 import React from 'react';
-import HeroSection from '../components/HeroSection';
-import TrustSection from '../components/TrustSection';
-import PlatformSection from '../components/PlatformSection';
-import WhyChooseSection from '../components/WhyChooseSection';
-import FooterCTA from '../components/FooterCTA';
+import { LandingHero } from '../components/HomeComponents/LandingHero';
+import { UnifiedSolution } from '../components/HomeComponents/UnifiedSolution';
+import { IndustriesSection } from '../components/HomeComponents/IndustriesSection';
 
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <TrustSection />
-      <PlatformSection />
-      <WhyChooseSection />
-      <FooterCTA />
+      <LandingHero />
+      <UnifiedSolution />
+      <IndustriesSection />
     </>
   );
 }

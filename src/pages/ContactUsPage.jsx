@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Shield, Users } from 'lucide-react';
+import { motion } from 'motion/react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import emailjs from '@emailjs/browser';
+import { emailConfig } from '../config/emailConfig';
+import LogoIcon from '../assets/contactUsPageIcons/LOGO.svg';
+import HeroLogo from '../assets/AboutUs_img/Asset 4 (1) 1.png';
+import MailIcon from '../assets/contactUsPageIcons/Mail.svg';
+import PhoneIcon from '../assets/contactUsPageIcons/Phone call.svg';
+import ClockIcon from '../assets/contactUsPageIcons/Clock.svg';
+import SendIcon from '../assets/contactUsPageIcons/Send.svg';
+import ShieldIcon from '../assets/contactUsPageIcons/Shield.svg';
+import UsersIcon from '../assets/contactUsPageIcons/Users.svg';
+import ThumbsUpIcon from '../assets/contactUsPageIcons/Thumbs up.svg';
+import MessageCircleIcon from '../assets/contactUsPageIcons/Message circle.svg';
+import './ContactUsPage.scss';
 
 export default function ContactUsPage() {
   const [formData, setFormData] = useState({
@@ -10,10 +23,68 @@ export default function ContactUsPage() {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const [formStatus, setFormStatus] = useState({
+    loading: false,
+    success: false,
+    error: false,
+    message: ''
+  });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setFormStatus({ loading: true, success: false, error: false, message: '' });
+
+    try {
+      emailjs.init(emailConfig.publicKey);
+
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        title: formData.company || 'Not provided',
+        message: formData.message,
+        to_email: 'support@helxon.com',
+      };
+
+      const response = await emailjs.send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        templateParams
+      );
+
+      console.log('Email sent successfully:', response);
+
+      setFormStatus({
+        loading: false,
+        success: true,
+        error: false,
+        message: 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.'
+      });
+
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        message: ''
+      });
+
+      setTimeout(() => {
+        setFormStatus({ loading: false, success: false, error: false, message: '' });
+      }, 5000);
+
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      
+      setFormStatus({
+        loading: false,
+        success: false,
+        error: true,
+        message: 'Sorry, something went wrong. Please try again or contact us directly at support@helxon.com'
+      });
+
+      setTimeout(() => {
+        setFormStatus({ loading: false, success: false, error: false, message: '' });
+      }, 5000);
+    }
   };
 
   const handleChange = (e) => {
@@ -23,149 +94,161 @@ export default function ContactUsPage() {
     });
   };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: 'Email Us',
-      details: ['hello@Helxon.com', 'support@Helxon.com'],
-      description: 'Get in touch via email for general inquiries and support'
-    },
-    {
-      icon: Phone,
-      title: 'Call Us',
-      details: ['+1 (555) 123-4567', '+1 (555) 987-6543'],
-      description: 'Speak directly with our team during business hours'
-    },
-    {
-      icon: MapPin,
-      title: 'Visit Us',
-      details: ['123 Cyber Street', 'Security City, SC 12345'],
-      description: 'Our headquarters in the heart of the tech district'
-    },
-    {
-      icon: Clock,
-      title: 'Business Hours',
-      details: ['Mon-Fri: 9:00 AM - 6:00 PM EST', 'Weekend: Emergency only'],
-      description: 'When you can reach us for immediate assistance'
-    }
-  ];
-
   const departments = [
     {
-      icon: Shield,
+      icon: ShieldIcon,
       title: 'Security Operations',
-      description: 'Technical support, incident response, and platform issues',
-      contact: 'soc@Helxon.com'
+      contact: 'Security@helxon.com'
     },
     {
-      icon: Users,
+      icon: UsersIcon,
       title: 'Sales & Partnerships',
-      description: 'New business, partnerships, and enterprise solutions',
-      contact: 'sales@Helxon.com'
+      contact: 'Sales@helxon.com'
     },
     {
-      icon: MessageCircle,
+      icon: ThumbsUpIcon,
       title: 'Customer Success',
-      description: 'Account management, training, and optimization support',
-      contact: 'success@Helxon.com'
+      contact: 'Contact@helxon.com'
     },
     {
-      icon: Send,
+      icon: MessageCircleIcon,
       title: 'General Support',
-      description: 'Billing, account questions, and general inquiries',
-      contact: 'support@Helxon.com'
-    }
-  ];
-
-  const faqs = [
-    {
-      question: 'How quickly can you implement Helxon for our organization?',
-      answer: 'Implementation typically takes 24-48 hours for most organizations. Our team handles the setup process and provides comprehensive onboarding.'
-    },
-    {
-      question: 'Do you provide 24/7 monitoring and support?',
-      answer: 'Yes, our Security Operations Center operates 24/7/365 with certified security professionals monitoring your environment around the clock.'
-    },
-    {
-      question: 'Can Helxon integrate with our existing security tools?',
-      answer: 'Absolutely. Helxon integrates with 200+ security tools and platforms through APIs and standard protocols like SIEM, SOAR, and threat intelligence feeds.'
-    },
-    {
-      question: 'What compliance standards do you support?',
-      answer: 'We support major compliance frameworks including SOC 2, HIPAA, PCI DSS, GDPR, and others. Our platform helps maintain compliance through automated reporting and controls.'
+      contact: 'Support@helxon.com'
     }
   ];
 
   return (
-    <div className="min-h-screen theme-transition bg-white">
+    <div className="contact-us-page">
       {/* Hero Section */}
-      <div className="pt-32 pb-20 bg-gradient-to-br from-white via-blue-50/50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+      <section className="contact-us-page__hero">
+        <div className="contact-us-page__hero-container">
+          <motion.div
+            className="contact-us-page__hero-content"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <motion.div
+              className="contact-us-page__hero-logo"
+              initial={{ opacity: 0, scale: 0.85, y: -30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.5, type: 'spring' }}
+            >
+              <img src={HeroLogo} alt="Helxon logo" />
+            </motion.div>
+            <motion.h1
+              className="contact-us-page__hero-title"
+              initial={{ opacity: 0, y: 35 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
               Contact Us
-            </h1>
-            <p className="text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed text-slate-600">
-              Ready to transform your security posture? Let's discuss how Helxon can help 
-              protect your organization from cyber threats.
-            </p>
-          </div>
+            </motion.h1>
+            <motion.p
+              className="contact-us-page__hero-subtitle"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+            >
+              Ready to transform your security posture? Let's discuss how Helxon can help protect your organization from cyber threats.
+            </motion.p>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
-      {/* Contact Form and Info */}
-      <div className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
+      {/* Main Contact Section */}
+      <section className="contact-us-page__main">
+        <div className="contact-us-page__main-container">
+          <div className="contact-us-page__grid">
             {/* Contact Form */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
-              <h2 className="text-3xl font-bold mb-8 text-slate-900">Send us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2 text-slate-700">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900"
-                      placeholder="Your full name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2 text-slate-700">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900"
-                      placeholder="your@email.com"
-                    />
-                  </div>
+            <motion.div
+              className="contact-us-page__form-wrapper"
+              initial={{ opacity: 0, x: -60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 1.3 }}
+            >
+              <h2 className="contact-us-page__section-title">Contact Us</h2>
+              
+              {formStatus.success && (
+                <div className="contact-us-page__alert contact-us-page__alert--success">
+                  <p>{formStatus.message}</p>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2 text-slate-700">
-                    Company
+              )}
+              
+              {formStatus.error && (
+                <div className="contact-us-page__alert contact-us-page__alert--error">
+                  <p>{formStatus.message}</p>
+                </div>
+              )}
+              
+              <form onSubmit={handleSubmit} className="contact-us-page__form">
+                <motion.div
+                  className="contact-us-page__form-field"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 1.4 }}
+                >
+                  <label className="contact-us-page__form-label">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="contact-us-page__form-input"
+                    placeholder=""
+                  />
+                </motion.div>
+
+                <motion.div
+                  className="contact-us-page__form-field"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 1.5 }}
+                >
+                  <label className="contact-us-page__form-label">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="contact-us-page__form-input"
+                    placeholder=""
+                  />
+                </motion.div>
+
+                <motion.div
+                  className="contact-us-page__form-field"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 1.6 }}
+                >
+                  <label className="contact-us-page__form-label">
+                    Company Name *
                   </label>
                   <input
                     type="text"
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900"
-                    placeholder="Your company name"
+                    required
+                    className="contact-us-page__form-input"
+                    placeholder=""
                   />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2 text-slate-700">
+                </motion.div>
+
+                <motion.div
+                  className="contact-us-page__form-field"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 1.7 }}
+                >
+                  <label className="contact-us-page__form-label">
                     Message *
                   </label>
                   <textarea
@@ -174,115 +257,169 @@ export default function ContactUsPage() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900"
-                    placeholder="Tell us about your security needs..."
+                    className="contact-us-page__form-textarea"
+                    placeholder=""
                   />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
-                >
-                  <Send className="w-5 h-5" />
-                  Send Message
-                </button>
-              </form>
-            </div>
+                </motion.div>
 
-            {/* Contact Information */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-slate-900">Contact Information</h2>
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => {
-                  const Icon = info.icon;
-                  return (
-                    <div key={index} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center bg-blue-100">
-                        <Icon className="w-6 h-6 text-blue-600" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold mb-2 text-slate-900">{info.title}</h3>
-                        {info.details.map((detail, idx) => (
-                          <p key={idx} className="mb-1 text-slate-700">{detail}</p>
-                        ))}
-                        <p className="text-sm text-slate-500">{info.description}</p>
-                      </div>
-                    </div>
-                  );
-                })}
+                <motion.button
+                  type="submit"
+                  className="contact-us-page__form-submit"
+                  disabled={formStatus.loading}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1.8 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {formStatus.loading ? (
+                    <>
+                      <div className="contact-us-page__spinner" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <img src={SendIcon} alt="" className="contact-us-page__send-icon" />
+                      <span>Send</span>
+                    </>
+                  )}
+                </motion.button>
+              </form>
+            </motion.div>
+
+            {/* Contact Info & Illustration */}
+            <motion.div
+              className="contact-us-page__info-wrapper"
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 1.5 }}
+            >
+              <motion.div
+                className="contact-us-page__illustration"
+                initial={{ rotate: -5, scale: 0.9 }}
+                animate={{ rotate: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 1.7 }}
+              >
+                <DotLottieReact
+                  src="https://lottie.host/ee01f240-c125-4a09-95cd-3ae2de372d7e/usds4LHpI7.lottie"
+                  loop
+                  autoplay
+                />
+              </motion.div>
+
+              <div className="contact-us-page__info">
+                <motion.div
+                  className="contact-us-page__info-item"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 1.8 }}
+                >
+                  <motion.div
+                    className="contact-us-page__info-icon-wrapper"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1.9 }}
+                  >
+                    <img src={MailIcon} alt="Email" />
+                  </motion.div>
+                  <div className="contact-us-page__info-content">
+                    <h3 className="contact-us-page__info-title">Email Us</h3>
+                    <p className="contact-us-page__info-detail">contact@Helxon.com</p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="contact-us-page__info-item"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 1.9 }}
+                >
+                  <motion.div
+                    className="contact-us-page__info-icon-wrapper"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20, delay: 2.0 }}
+                  >
+                    <img src={PhoneIcon} alt="Phone" />
+                  </motion.div>
+                  <div className="contact-us-page__info-content">
+                    <h3 className="contact-us-page__info-title">Call Us</h3>
+                    <p className="contact-us-page__info-detail">+1(604) 499 5973</p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="contact-us-page__info-item"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 2.0 }}
+                >
+                  <motion.div
+                    className="contact-us-page__info-icon-wrapper"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20, delay: 2.1 }}
+                  >
+                    <img src={ClockIcon} alt="Clock" />
+                  </motion.div>
+                  <div className="contact-us-page__info-content">
+                    <h3 className="contact-us-page__info-title">Business Hours</h3>
+                    <p className="contact-us-page__info-detail">Mon-Fri: 9:00 AM - 6:00 PM PST</p>
+                  </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Departments Section */}
-      <div className="py-20 bg-slate-50/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-slate-900">Get the Right Help</h2>
-            <p className="text-xl max-w-2xl mx-auto text-slate-600">
+      <section className="contact-us-page__departments">
+        <div className="contact-us-page__departments-container">
+          <motion.div
+            className="contact-us-page__departments-header"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 2.2 }}
+          >
+            <h2 className="contact-us-page__departments-title">Get the Right Help</h2>
+            <p className="contact-us-page__departments-subtitle">
               Connect with the team that can best assist you
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {departments.map((dept, index) => {
-              const Icon = dept.icon;
-              return (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg mb-4 bg-blue-100">
-                    <Icon className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-slate-900">{dept.title}</h3>
-                  <p className="mb-4 leading-relaxed text-slate-600">{dept.description}</p>
-                  <a 
-                    href={`mailto:${dept.contact}`}
-                    className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center gap-1 transition-colors duration-200"
-                  >
-                    <Mail className="w-4 h-4" />
-                    {dept.contact}
-                  </a>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* FAQ Section */}
-      <div className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-slate-900">Frequently Asked Questions</h2>
-            <p className="text-xl text-slate-600">
-              Quick answers to common questions
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg border border-slate-200">
-                <h3 className="text-lg font-semibold mb-3 text-slate-900">{faq.question}</h3>
-                <p className="leading-relaxed text-slate-600">{faq.answer}</p>
-              </div>
+          <div className="contact-us-page__departments-grid">
+            {departments.map((dept, index) => (
+              <motion.div
+                key={dept.title}
+                className="contact-us-page__department-card"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 2.5 + index * 0.1 }}
+                whileHover={{ y: -10 }}
+              >
+                <motion.div
+                  className="contact-us-page__department-icon-wrapper"
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15, delay: 2.6 + index * 0.1 }}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                >
+                  <img src={dept.icon} alt={dept.title} />
+                </motion.div>
+                <h3 className="contact-us-page__department-title">{dept.title}</h3>
+                <a 
+                  href={`mailto:${dept.contact}`}
+                  className="contact-us-page__department-email"
+                >
+                  <img src={MailIcon} alt="" className="contact-us-page__department-email-icon" />
+                  <span>{dept.contact}</span>
+                </a>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Navigation */}
-      <div className="py-8 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/company" className="hover:text-blue-400 transition-colors text-slate-600">
-              ← Back to Company
-            </Link>
-            <Link to="/about" className="hover:text-blue-400 transition-colors text-slate-600">
-              About Us →
-            </Link>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

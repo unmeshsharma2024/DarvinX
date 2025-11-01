@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
 import HomePage from './pages/HomePage';
-import PlatformPage from './pages/PlatformPage';
-import SolutionsPage from './pages/SolutionsPage';
-import ResourcesPage from './pages/ResourcesPage';
-import CompanyPage from './pages/CompanyPage';
-import AboutUsPage from './pages/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage';
+import FAQPage from './pages/FAQPage';
+import PlatformPage from './pages/PlatformPage';
+import AboutUsPage from './pages/AboutUsPage';
+import { Header } from './components/Header';
+import { BottomNavBar } from './components/BottomNavBar';
+import { Footer } from './components/Footer';
 
 function AppContent() {
   return (
@@ -16,14 +16,14 @@ function AppContent() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/contact-us" element={<ContactUsPage />} />
+          <Route path="/faq" element={<FAQPage />} />
           <Route path="/platform" element={<PlatformPage />} />
-          <Route path="/solutions" element={<SolutionsPage />} />
-          <Route path="/resources" element={<ResourcesPage />} />
-          <Route path="/company" element={<CompanyPage />} />
-          <Route path="/about" element={<AboutUsPage />} />
-          <Route path="/contact" element={<ContactUsPage />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
         </Routes>
       </main>
+      <BottomNavBar />
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,430 @@
+/* put this <link> in index.html <head> if not already:
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400&display=swap"
+  rel="stylesheet"
+/>
+*/
+
+.unified-solution {
+  background: #ffffff;
+  padding: 4rem 0 6rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-height: 80vh;
+
+  &__container {
+    width: 100%;
+    max-width: 80rem; // Match header container max-width
+    margin: 0 auto;
+    padding: 0 1rem; // Match header container padding
+    text-align: center;
+    position: relative;
+
+    @media (min-width: 640px) {
+      padding: 0 1.5rem; // Match header container padding on larger screens
+    }
+  }
+
+  /* -----------------
+     HEADER (match slide)
+     ----------------- */
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  /* Big navy title like your slide */
+  &__title {
+    font-family: 'Poppins', 'Inter', ui-sans-serif, system-ui, -apple-system,
+      Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);  /* Responsive from mobile to desktop */
+    font-weight: 500;
+    line-height: 1.1;
+    color: #1a2348;
+    margin: 0 0 0.5rem 0;
+  }
+
+  /* Subtitle below in same dark tone */
+  &__subtitle {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 2rem);  /* Responsive from mobile to desktop */
+    font-weight: 400;
+    line-height: 1.25;
+    color: #1a2348;
+    margin: 0;
+  }
+
+  /* -----------------
+     STAGE
+     ----------------- */
+  &__stage {
+    position: relative;
+    width: 100%;
+    max-width: 80vw;
+    margin: 0 auto;
+    /* taller than the visible cluster because watermark bleeds down */
+    padding-top: 1rem;
+  }
+
+  /* Pale watermark "VORXOC" behind robot lower body */
+  &__watermark {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 25%);
+    font-family: 'Oswald', ui-sans-serif, system-ui, -apple-system,
+      Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: clamp(12rem, 50vw, 20rem);
+    line-height: 0.8;
+    letter-spacing: 0.05em;
+    color: rgba(0, 152, 254, 0.08);
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
+    white-space: nowrap;
+  }
+
+  /* -----------------
+     CLUSTER
+     - This is the "robot + 6 tiles" block
+     - We are hand-building 3 rows like the slide
+     ----------------- */
+  &__cluster {
+    position: relative;
+    z-index: 2;
+
+    /* Responsive width that doesn't exceed container */
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* -------- ROWS AROUND ROBOT -------- */
+
+.cluster__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+/* Row 1 (top cards above robot head)
+   In your slide the top two cards sit close to each other,
+   centered above the robot. */
+.cluster__row--top {
+  gap: 4rem;           /* distance between the 2 top cards */
+  margin-bottom: 2rem; /* space down to middle row */
+  margin-top: 1rem;    /* pull the row closer under subtitle */
+}
+
+/* Row 2 (middle row: left card | robot | right card)
+   This is the main row where robot lives */
+.cluster__row--middle {
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+/* Row 3 (bottom row: alert left | spacer | alert right)
+   Cards sit near robot hips, fairly tight */
+.cluster__row--bottom {
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  margin-top: -200px;
+}
+
+/* -----------------
+   CARD STYLE (tiles)
+   ----------------- */
+.cluster__card {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 14px 16px rgba(0, 0, 0, 0.12),
+    0 2px 3px rgba(0, 0, 0, 0.04);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 25px rgba(0, 0, 0, 0.15),
+      0 4px 6px rgba(0, 0, 0, 0.06);
+    border-color: rgba(43, 127, 237, 0.3);
+  }
+
+  &:active {
+    transform: translateY(-2px);
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+}
+
+/* -----------------
+   ROBOT in middle row
+   ----------------- */
+.cluster__robot {
+  flex-shrink: 0;
+  width: 408px;
+  height: 547px;
+  margin-top: -60px; /* lift robot's head up so top row sits above it,
+                        exactly like the reference slide */
+  margin-bottom: -80px; /* pull bottom row closer to robot hips */
+  position: relative;
+  z-index: 3;
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    margin-top: -150px;
+  }
+}
+
+/* -----------------
+   SPACER in bottom row
+   This holds empty space equal to robot width,
+   so bottom-left and bottom-right cards sit left/right of robot hips.
+   ----------------- */
+.cluster__spacer {
+  flex-shrink: 0;
+  width: 500px;
+  height: 1px;
+}
+
+/* ------------- RESPONSIVE ------------- */
+
+/* Tablet landscape and smaller desktops */
+@media (max-width: 1024px) {
+  .unified-solution__title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+  .unified-solution__subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+  }
+
+  .unified-solution__cluster {
+    max-width: 700px;
+  }
+
+  .cluster__robot {
+    width: 350px;
+    height: 450px;
+    margin-top: -50px;
+    margin-bottom: -70px;
+
+    canvas {
+      margin-top: -120px;
+    }
+  }
+
+  .cluster__card {
+    width: 100px;
+    height: 100px;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .cluster__spacer {
+    width: 350px;
+  }
+
+  .cluster__row--top {
+    gap: 2.5rem;
+  }
+  .cluster__row--middle {
+    gap: 1rem;
+  }
+  .cluster__row--bottom {
+    gap: 1rem;
+    margin-top: -180px;
+  }
+
+  .unified-solution__watermark {
+    font-size: clamp(8rem, 18vw, 14rem);
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .unified-solution {
+    padding: 3rem 0 4rem;
+  }
+
+  .unified-solution__title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+  .unified-solution__subtitle {
+    font-size: clamp(1.125rem, 3.5vw, 1.5rem);
+  }
+
+  .unified-solution__cluster {
+    max-width: 500px;
+  }
+
+  .cluster__robot {
+    width: 280px;
+    height: 350px;
+    margin-top: -40px;
+    margin-bottom: -60px;
+
+    canvas {
+      margin-top: -100px;
+    }
+  }
+
+  .cluster__card {
+    width: 90px;
+    height: 90px;
+
+    img {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  .cluster__spacer {
+    width: 280px;
+  }
+
+  .cluster__row--top {
+    gap: 1.5rem;
+  }
+  .cluster__row--middle {
+    gap: 0.75rem;
+  }
+  .cluster__row--bottom {
+    gap: 0.75rem;
+    margin-top: -150px;
+  }
+
+  .unified-solution__watermark {
+    font-size: clamp(6rem, 20vw, 12rem);
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .unified-solution {
+    padding: 2rem 0 3rem;
+    min-height: 70vh;
+  }
+
+  .unified-solution__title {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+  .unified-solution__subtitle {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+
+  .unified-solution__cluster {
+    max-width: 100%;
+  }
+
+  .cluster__robot {
+    width: 220px;
+    height: 280px;
+    margin-top: -30px;
+    margin-bottom: -50px;
+
+    canvas {
+      margin-top: -80px;
+    }
+  }
+
+  .cluster__card {
+    width: 75px;
+    height: 75px;
+    border-radius: 6px;
+
+    img {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  .cluster__spacer {
+    width: 220px;
+  }
+
+  .cluster__row--top {
+    gap: 1rem;
+  }
+  .cluster__row--middle {
+    gap: 0.5rem;
+  }
+  .cluster__row--bottom {
+    gap: 0.5rem;
+    margin-top: -120px;
+  }
+
+  .unified-solution__watermark {
+    font-size: clamp(4rem, 25vw, 8rem);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 360px) {
+  .unified-solution__title {
+    font-size: 1.5rem;
+  }
+  .unified-solution__subtitle {
+    font-size: 0.95rem;
+  }
+
+  .cluster__robot {
+    width: 180px;
+    height: 240px;
+  }
+
+  .cluster__card {
+    width: 65px;
+    height: 65px;
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .cluster__spacer {
+    width: 180px;
+  }
+
+  .cluster__row--top {
+    gap: 0.75rem;
+  }
+  .cluster__row--middle {
+    gap: 0.4rem;
+  }
+  .cluster__row--bottom {
+    gap: 0.4rem;
+    margin-top: -100px;
+  }
+}
