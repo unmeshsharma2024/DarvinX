@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ContactUsPage from './pages/ContactUsPage';
+import FAQPage from './pages/FAQPage';
 import PlatformPage from './pages/PlatformPage';
 import AboutUsPage from './pages/AboutUsPage';
 import { Header } from './components/Header';
@@ -16,6 +17,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/contact-us" element={<ContactUsPage />} />
+          <Route path="/faq" element={<FAQPage />} />
           <Route path="/platform" element={<PlatformPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
         </Routes>

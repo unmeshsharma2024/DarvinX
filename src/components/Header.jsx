@@ -9,7 +9,7 @@ export function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isInHeroSection, setIsInHeroSection] = useState(false);
-  const isAboutUsPage = location.pathname === '/about-us' || location.pathname === '/contact-us';
+  const isAboutUsPage = location.pathname === '/about-us' || location.pathname === '/contact-us' || location.pathname === '/faq';
 
   useEffect(() => {
     if (!isAboutUsPage) {
@@ -18,7 +18,7 @@ export function Header() {
     }
 
     const handleScroll = () => {
-      const heroSection = document.querySelector('.about-us-hero') || document.querySelector('.contact-us-page__hero');
+      const heroSection = document.querySelector('.about-us-hero') || document.querySelector('.contact-us-page__hero') || document.querySelector('.faq-page__hero');
       if (heroSection) {
         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
         const scrollPosition = window.scrollY + 100; // Account for header height
