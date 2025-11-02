@@ -14,13 +14,13 @@ export function IntegrationBenefits() {
     {
       icon: Zap,
       title: 'Enhanced Capabilities',
-      description: 'Amplify your security tools with expert analysts and AI response',
+      description: 'Boost every tool: AI + analysts turn alerts into action in seconds',
       color: '#007BFF',
     },
     {
       icon: DollarSign,
       title: 'Cost Optimization',
-      description: 'Maximize ROI on existing security investments',
+      description: 'Unlock 25-40% of your security budget instantly',
       color: '#E94B8B',
     },
   ];
