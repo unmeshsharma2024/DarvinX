@@ -8,10 +8,12 @@ import AboutUsPage from './pages/AboutUsPage';
 import { Header } from './components/Header';
 import { BottomNavBar } from './components/BottomNavBar';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 
 function AppContent() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-white text-slate-900">
+      <ScrollToTop />
       <Header />
       <main>
         <Routes>

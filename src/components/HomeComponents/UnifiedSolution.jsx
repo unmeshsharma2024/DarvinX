@@ -6,6 +6,7 @@ import endpointIcon from '../../assets/endpoint.svg';   // network / gear
 import adrIcon from '../../assets/adr.svg';             // globe+shield
 import cloudIcon from '../../assets/cloud.svg';         // cloud chip
 import wafIcon from '../../assets/waf.svg';             // alert triangle
+import vorxocGreenLogo from '../../assets/vorxocGreen.svg';
 
 import './UnifiedSolution.scss';
 
@@ -24,7 +25,7 @@ export function UnifiedSolution() {
         {/* Stage = watermark + cluster */}
         <div className="unified-solution__stage">
           {/* giant pale watermark behind robot */}
-          <div className="unified-solution__watermark">VORXOC</div>
+          <div className="unified-solution__watermark"><img src={vorxocGreenLogo} alt="VORXOC Green Logo" /></div>
 
           {/* cluster = 3 rows of tiles wrapped around robot */}
           <div className="unified-solution__cluster">

@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import vorxocLogo from '../../assets/vorxocWhite.svg';
+import vorxocGreenLogo from '../../assets/vorxocGreen.svg';
 import './VorxocHero.scss';
 
 export function VorxocHero() {
@@ -50,7 +51,7 @@ export function VorxocHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
               >
-                <span className="vorxoc-hero__title--green">VORXOC</span>
+                <span className="vorxoc-hero__title--green green-logo"><img src={vorxocGreenLogo} alt="VORXOC Green Logo" /></span>
                 <br />
                 <span className="vorxoc-hero__title--black">Enterprise-Grade</span>
                 <br />
