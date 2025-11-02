@@ -1,5 +1,5 @@
 import React from 'react';
-//import Spline from '@splinetool/react-spline';
+import Spline from '@splinetool/react-spline';
 
 import fireWallIcon from '../../assets/fireWall.svg';   // firewall/flame
 import endpointIcon from '../../assets/endpoint.svg';   // network / gear
@@ -45,7 +45,7 @@ export function UnifiedSolution() {
               </div>
 
               <div className="cluster__robot">
-                {/* <Spline scene="robotScene.splinecode" wasmPath="/" /> */}
+                 <Spline scene="robotScene.splinecode" wasmPath="/" /> 
               </div>
 
               <div className="cluster__card">
