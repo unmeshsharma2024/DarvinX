@@ -10,13 +10,11 @@
   -webkit-backdrop-filter: blur(8px);
 
   &__container {
-    margin: 0 auto;
-    max-width: 80rem; // max-w-7xl equivalent
-    padding: 0 1rem; // px-4 equivalent
-    
-    @media (min-width: 640px) {
-      padding: 0 1.5rem; // sm:px-6 equivalent
-    }
+    // margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    max-width: 100%;
+    // max-width: 80rem; // max-w-7xl equivalent
   }
 
   &__content {
