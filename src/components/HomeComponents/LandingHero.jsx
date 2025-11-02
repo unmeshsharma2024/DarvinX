@@ -58,7 +58,7 @@ export function LandingHero() {
           >
             Empower your SecOps with autonomous investigation, triage, and response.
             Helxon analyzes every alert, correlates signals across your stack, and acts
-            in seconds, so your team can focus on what matters.
+            in seconds—so your team can focus on what matters.
           </motion.p>
         </motion.div>
       </div>
