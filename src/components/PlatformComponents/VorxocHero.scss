@@ -139,12 +139,18 @@
 
     span {
       display: block;
-      line-height: 1.2;
+      line-height: 0.6;
     }
 
     &--green {
       color: #33CC00;
       font-size: clamp(2rem, 5vw, 2.75rem);
+    }
+    .green-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      margin-left: -7px;
     }
 
     &--black {
