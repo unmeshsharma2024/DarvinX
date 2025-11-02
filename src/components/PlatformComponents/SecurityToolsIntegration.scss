@@ -122,7 +122,7 @@
     width: 100%;
 
     @media (min-width: 480px) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -135,7 +135,7 @@
 
   &__logo {
     width: 100%;
-    max-width: clamp(80px, 12vw, 120px);
+    max-width: clamp(80px, 12vw, 180px);
     height: auto;
     object-fit: contain;
     filter: grayscale(100%);
