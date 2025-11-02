@@ -54,7 +54,7 @@
   &__container {
     margin: 0 auto;
     max-width: 80rem;
-    padding-inline: 1rem;
+    // padding-inline: 1rem;
     height: 100%;
     display: flex;
     align-items: center;
@@ -64,7 +64,7 @@
     z-index: 10;
     pointer-events: none; // Make text non-interactive to allow Spline mouse events
 
-    @media (min-width: 640px) { padding-inline: 1.5rem; }
+    // @media (min-width: 640px) { padding-inline: 1.5rem; }
 
     @media (max-width: 1024px) {
       position: relative;
