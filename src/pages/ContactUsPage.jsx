@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../config/emailConfig';
+import { Toast } from '../components/ui/Toast';
 import LogoIcon from '../assets/contactUsPageIcons/LOGO.svg';
 import HeroLogo from '../assets/AboutUs_img/Asset 4 (1) 1.png';
 import MailIcon from '../assets/contactUsPageIcons/Mail.svg';
@@ -67,9 +68,6 @@ export default function ContactUsPage() {
         message: ''
       });
 
-      setTimeout(() => {
-        setFormStatus({ loading: false, success: false, error: false, message: '' });
-      }, 5000);
 
     } catch (error) {
       console.error('Email sending failed:', error);
@@ -81,9 +79,6 @@ export default function ContactUsPage() {
         message: 'Sorry, something went wrong. Please try again or contact us directly at support@helxon.com'
       });
 
-      setTimeout(() => {
-        setFormStatus({ loading: false, success: false, error: false, message: '' });
-      }, 5000);
     }
   };
 
@@ -92,6 +87,10 @@ export default function ContactUsPage() {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleCloseToast = () => {
+    setFormStatus({ loading: false, success: false, error: false, message: '' });
   };
 
   const departments = [
@@ -168,18 +167,6 @@ export default function ContactUsPage() {
               transition={{ duration: 0.8, delay: 1.3 }}
             >
               <h2 className="contact-us-page__section-title">Contact Us</h2>
-              
-              {formStatus.success && (
-                <div className="contact-us-page__alert contact-us-page__alert--success">
-                  <p>{formStatus.message}</p>
-                </div>
-              )}
-              
-              {formStatus.error && (
-                <div className="contact-us-page__alert contact-us-page__alert--error">
-                  <p>{formStatus.message}</p>
-                </div>
-              )}
               
               <form onSubmit={handleSubmit} className="contact-us-page__form">
                 <motion.div
@@ -420,6 +407,15 @@ export default function ContactUsPage() {
           </div>
         </div>
       </section>
+
+      {/* Toast Notifications */}
+      <Toast
+        message={formStatus.message}
+        type={formStatus.success ? 'success' : 'error'}
+        isVisible={formStatus.success || formStatus.error}
+        onClose={handleCloseToast}
+        duration={formStatus.success ? 3000 : 5000}
+      />
     </div>
   );
 }
