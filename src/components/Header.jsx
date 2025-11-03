@@ -3,12 +3,14 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Logo } from './Logo';
 import AboutUsLogo from '../assets/AboutUs_icons/LOGO.svg';
 import { Button } from './ui/Button';
+import { GetStartedModal } from './GetStartedModal';
 import './Header.scss';
 
 export function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isInHeroSection, setIsInHeroSection] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const isAboutUsPage = location.pathname === '/about-us' || location.pathname === '/contact-us' || location.pathname === '/faq' || location.pathname === '/platform';
 
   useEffect(() => {
@@ -34,7 +36,11 @@ export function Header() {
   }, [isAboutUsPage]);
 
   const handleGetStarted = () => {
-    navigate('/contact-us');
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   const handleLogoClick = () => {
@@ -44,28 +50,33 @@ export function Header() {
   const showWhiteHeader = isAboutUsPage && isInHeroSection;
 
   return (
-    <header className={`header ${showWhiteHeader ? 'header--white' : ''}`}>
-      <div className="header__container">
-        <div className="header__content">
-          {/* Logo */}
-          <div className="header__logo" onClick={handleLogoClick}>
-            {showWhiteHeader ? (
-              <img src={AboutUsLogo} alt="Helxon" className="header__logo-img" />
-            ) : (
-              <Logo />
-            )}
-          </div>
+    <>
+      <header className={`header ${showWhiteHeader ? 'header--white' : ''}`}>
+        <div className="header__container">
+          <div className="header__content">
+            {/* Logo */}
+            <div className="header__logo" onClick={handleLogoClick}>
+              {showWhiteHeader ? (
+                <img src={AboutUsLogo} alt="Helxon" className="header__logo-img" />
+              ) : (
+                <Logo />
+              )}
+            </div>
 
-          {/* Get Started Button */}
-          <Button
-            variant="outline"
-            className={`header__button ${showWhiteHeader ? 'header__button--white' : ''}`}
-            onClick={handleGetStarted}
-          >
-            Get Started
-          </Button>
+            {/* Get Started Button */}
+            <Button
+              variant="outline"
+              className={`header__button ${showWhiteHeader ? 'header__button--white' : ''}`}
+              onClick={handleGetStarted}
+            >
+              Get Started
+            </Button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* Get Started Modal */}
+      <GetStartedModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </>
   );
 }

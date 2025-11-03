@@ -1,0 +1,95 @@
+.toast {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10000;
+  min-width: 320px;
+  max-width: 500px;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  @media (max-width: 640px) {
+    left: 1rem;
+    right: 1rem;
+    top: 1rem;
+    min-width: auto;
+    max-width: none;
+  }
+
+  &--success {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.95) 0%, rgba(22, 163, 74, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+  }
+
+  &--error {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.95) 0%, rgba(220, 38, 38, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    flex: 1;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      stroke-width: 2.5;
+    }
+  }
+
+  &__message {
+    margin: 0;
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: inherit;
+  }
+
+  &__close {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
