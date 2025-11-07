@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import HeroLogo from '../assets/AboutUs_img/Asset 4 (1) 1.png';
 import { ChevronDown } from 'lucide-react';
 import { AboutUsCTA } from '../components/AboutUsComponents/AboutUsCTA';
+import { SEO } from '../components/SEO';
 import './FAQPage.scss';
 
 export default function FAQPage() {
@@ -76,9 +77,16 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="faq-page">
-      {/* Hero Section */}
-      <section className="faq-page__hero">
+    <>
+      <SEO 
+        title="FAQ - Frequently Asked Questions | Helxon SOC-as-a-Service"
+        description="Find answers to common questions about Helxon's SOC-as-a-Service, VorXOC platform, pricing, compliance, integrations, and cybersecurity solutions."
+        keywords="SOC-as-a-Service FAQ, Helxon questions, cybersecurity FAQ, VorXOC platform FAQ, SOC pricing, compliance questions, security monitoring FAQ"
+        canonicalUrl="/faq"
+      />
+      <div className="faq-page">
+        {/* Hero Section */}
+        <section className="faq-page__hero">
         <div className="faq-page__hero-container">
           <motion.div
             className="faq-page__hero-content"
@@ -164,9 +172,10 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <AboutUsCTA />
-    </div>
+        {/* CTA Section */}
+        <AboutUsCTA />
+      </div>
+    </>
   );
 }
 

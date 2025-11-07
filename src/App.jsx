@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import HomePage from './pages/HomePage';
 import ContactUsPage from './pages/ContactUsPage';
 import FAQPage from './pages/FAQPage';
 import PlatformPage from './pages/PlatformPage';
 import AboutUsPage from './pages/AboutUsPage';
+import NotFoundPage from './pages/NotFoundPage';
 import { Header } from './components/Header';
 import { BottomNavBar } from './components/BottomNavBar';
 import { Footer } from './components/Footer';
@@ -22,6 +24,7 @@ function AppContent() {
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/platform" element={<PlatformPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <BottomNavBar />
@@ -32,9 +35,11 @@ function AppContent() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

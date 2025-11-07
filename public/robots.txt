@@ -1,0 +1,15 @@
+# robots.txt for helxon.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://helxon.com/sitemap.xml
+
+# Crawl-delay (optional, adjust if needed)
+Crawl-delay: 1
+
+# Disallow specific paths if needed (examples below)
+# Disallow: /admin/
+# Disallow: /private/
+

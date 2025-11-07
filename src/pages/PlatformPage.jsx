@@ -6,19 +6,28 @@ import { SecurityToolsIntegration } from '../components/PlatformComponents/Secur
 import { IntegrationBenefits } from '../components/PlatformComponents/IntegrationBenefits';
 import { WhyChooseVorxoc } from '../components/PlatformComponents/WhyChooseVorxoc';
 import { ReadyToSecure } from '../components/PlatformComponents/ReadyToSecure';
+import { SEO } from '../components/SEO';
 import './PlatformPage.scss';
 
 export default function PlatformPage() {
   return (
-    <div className="platform-page">
-      <VorxocHero />
-      <VorxocPartners />
-      <VorxocOverview />
-      <SecurityToolsIntegration />
-      <IntegrationBenefits />
-      <WhyChooseVorxoc />
-      <ReadyToSecure />
-    </div>
+    <>
+      <SEO 
+        title="VorXOC Platform - Unified Security Operations | Helxon"
+        description="Discover VorXOC, Helxon's proprietary security operations platform. Seamlessly integrate with Microsoft Sentinel, Defender, and leading security tools for unified threat visibility and automated response."
+        keywords="VorXOC platform, security operations platform, Microsoft Sentinel integration, unified security dashboard, threat visibility, security automation, SIEM integration, EDR integration, security orchestration"
+        canonicalUrl="/platform"
+      />
+      <div className="platform-page">
+        <VorxocHero />
+        <VorxocPartners />
+        <VorxocOverview />
+        <SecurityToolsIntegration />
+        <IntegrationBenefits />
+        <WhyChooseVorxoc />
+        <ReadyToSecure />
+      </div>
+    </>
   );
 }
 

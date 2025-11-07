@@ -4,6 +4,7 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../config/emailConfig';
 import { Toast } from '../components/ui/Toast';
+import { SEO } from '../components/SEO';
 import LogoIcon from '../assets/contactUsPageIcons/LOGO.svg';
 import HeroLogo from '../assets/AboutUs_img/Asset 4 (1) 1.png';
 import MailIcon from '../assets/contactUsPageIcons/Mail.svg';
@@ -117,9 +118,16 @@ export default function ContactUsPage() {
   ];
 
   return (
-    <div className="contact-us-page">
-      {/* Hero Section */}
-      <section className="contact-us-page__hero">
+    <>
+      <SEO 
+        title="Contact Helxon - Get Started with SOC-as-a-Service Today"
+        description="Get in touch with Helxon's security experts. Contact us for a demo, consultation, or to learn more about our SOC-as-a-Service solutions. Available Mon-Fri: 9:00 AM - 6:00 PM PST."
+        keywords="contact Helxon, SOC-as-a-Service inquiry, security consultation, request demo, cybersecurity support, get started, security operations contact"
+        canonicalUrl="/contact-us"
+      />
+      <div className="contact-us-page">
+        {/* Hero Section */}
+        <section className="contact-us-page__hero">
         <div className="contact-us-page__hero-container">
           <motion.div
             className="contact-us-page__hero-content"
@@ -416,6 +424,7 @@ export default function ContactUsPage() {
         onClose={handleCloseToast}
         duration={formStatus.success ? 3000 : 5000}
       />
-    </div>
+      </div>
+    </>
   );
 }

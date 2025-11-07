@@ -1,0 +1,53 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/images/*.{png,jpg,jpeg,gif,svg,ico,webp}",
+      "/assets/*.{png,jpg,jpeg,gif,svg,ico,webp}",
+      "/*.{css,scss,js,json,xml,txt}",
+      "/favicon.ico",
+      "/sitemap.xml",
+      "/robots.txt"
+    ]
+  },
+  "routes": [
+    {
+      "route": "/",
+      "allowedRoles": ["anonymous", "authenticated"]
+    },
+    {
+      "route": "/platform",
+      "allowedRoles": ["anonymous", "authenticated"]
+    },
+    {
+      "route": "/about-us",
+      "allowedRoles": ["anonymous", "authenticated"]
+    },
+    {
+      "route": "/contact-us",
+      "allowedRoles": ["anonymous", "authenticated"]
+    },
+    {
+      "route": "/faq",
+      "allowedRoles": ["anonymous", "authenticated"]
+    }
+  ],
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "X-XSS-Protection": "1; mode=block",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  },
+  "mimeTypes": {
+    ".json": "application/json",
+    ".xml": "application/xml",
+    ".svg": "image/svg+xml"
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html",
+      "statusCode": 200
+    }
+  }
+}
+
