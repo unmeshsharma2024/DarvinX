@@ -1,0 +1,111 @@
+.why-choose-vorxoc {
+  width: 100%;
+  padding: 6rem 0;
+  background: #ffffff;
+
+  @media (max-width: 768px) {
+    padding: 4rem 0;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: 640px) {
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__title {
+    font-family: 'Inter', 'Poppins', ui-sans-serif, system-ui, -apple-system,
+      Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #33CC00;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  &__description {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+    color: #333333;
+    max-width: 64rem;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  &__card {
+    background: #E8F5E9;
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(51, 204, 0, 0.15);
+    }
+  }
+
+  &__icon-wrapper {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    color: #33CC00;
+  }
+
+  &__card-title {
+    font-family: 'Inter', 'Poppins', ui-sans-serif, system-ui, -apple-system,
+      Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 0.75rem;
+  }
+
+  &__card-description {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+      Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0;
+  }
+}
+
