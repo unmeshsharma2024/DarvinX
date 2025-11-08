@@ -7,12 +7,12 @@
 
 .unified-solution {
   background: #ffffff;
-  padding: 4rem 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
   min-height: 80vh;
+  margin-top: -100px !important;
 
   &__container {
     width: 100%;
@@ -485,6 +485,7 @@
 
   .unified-solution__by-line {
     font-size: 0.75rem;
+    margin-top: -4px;
   }
 
   .unified-solution__headline {
