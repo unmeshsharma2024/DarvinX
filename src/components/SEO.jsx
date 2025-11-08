@@ -5,7 +5,7 @@ export function SEO({
   title = 'Helxon - SOC-as-a-Service | 24/7 Cybersecurity Monitoring',
   description = 'Helxon provides enterprise-grade SOC-as-a-Service powered by Microsoft security stack. Get 24/7 threat monitoring, detection, and response with the VorXOC platform.',
   keywords = 'SOC-as-a-Service, cybersecurity, threat monitoring, Microsoft Sentinel, Azure security, managed SOC, threat detection, incident response, VorXOC, security operations',
-  ogImage = 'https://helxon.com/images/og-image.png',
+  ogImage = 'https://helxon.com/images/vorxocGreen.svg',
   ogType = 'website',
   twitterCard = 'summary_large_image',
   canonicalUrl
