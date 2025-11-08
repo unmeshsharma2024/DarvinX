@@ -97,7 +97,8 @@
       "--no-zygote",
       "--single-process"
     ],
-    "headless": true
+    "headless": true,
+    "puppeteerExecutablePath": "/home/runner/.cache/puppeteer/chrome/linux-*/chrome-linux64/chrome"
   },
   "browserslist": {
     "production": [
